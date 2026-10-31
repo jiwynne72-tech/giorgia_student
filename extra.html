@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#dceef1">
+<title>Giorgia's English Funpage | Lesson 2</title>
+<style>
+:root{
+  --ink:#20343b;--muted:#5d7076;--navy:#244b5a;--teal:#287f80;
+  --teal-dark:#1d6669;--sky:#e5f2f5;--cream:#fffaf0;--paper:#ffffff;
+  --gold:#e9bd65;--line:#d8e5e6;--soft:#f1f6f4;--good:#24734e;
+  --bad:#a43f3f;--radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:18px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+ color:var(--ink);background:linear-gradient(145deg,#e8f3f3 0%,#f8f5eb 55%,#e7eff4 100%);line-height:1.6}
+.wrap{max-width:850px;margin:0 auto}
+.hero{position:relative;overflow:hidden;background:linear-gradient(125deg,#244b5a,#287f80);
+ color:white;border-radius:26px;padding:30px 26px;margin:8px 0 20px;box-shadow:0 12px 30px #244b5a20}
+.hero:after{content:"✦";position:absolute;right:25px;top:5px;font-size:100px;color:#ffffff20;transform:rotate(12deg)}
+.kicker{text-transform:uppercase;letter-spacing:2px;font-size:.75rem;font-weight:800;color:#d7ece8}
+h1{font-size:clamp(2rem,6vw,3rem);line-height:1.12;margin:8px 0}
+.hero p{margin:8px 0 0;color:#eaf5f3;max-width:620px}
+.pill{display:inline-block;background:#ffffff20;border:1px solid #ffffff50;border-radius:999px;padding:5px 12px;font-size:.82rem}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+nav a{color:var(--navy);text-decoration:none;background:#ffffffc9;border:1px solid var(--line);border-radius:999px;padding:8px 13px;font-size:.88rem;font-weight:700}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:23px;margin:16px 0;box-shadow:0 7px 22px #20343b0a}
+h2{color:var(--navy);font-size:1.45rem;margin:0 0 12px}
+h3{color:var(--teal-dark);margin:18px 0 7px;font-size:1.08rem}
+.lead{color:var(--muted);margin-top:-4px}
+.reading{background:var(--cream);border-left:5px solid var(--gold);padding:18px 20px;border-radius:14px}
+.reading p{margin:0 0 13px}.reading p:last-child{margin-bottom:0}
+.note{background:var(--sky);padding:13px 15px;border-radius:12px;margin:12px 0;color:#284b57}
+.example{background:var(--soft);padding:11px 14px;border-radius:11px;margin:8px 0}
+strong.key{color:var(--teal-dark)}
+.q{padding:15px 0;border-bottom:1px solid var(--line)}
+.q:last-child{border:0}
+.q p{font-weight:650;margin:0 0 8px}
+label.option{display:block;padding:7px 10px;margin:5px 0;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+label.option:hover{background:var(--sky)}
+input[type=radio],input[type=checkbox]{accent-color:var(--teal);margin-right:7px}
+input[type=text]{width:100%;max-width:430px;padding:11px 12px;border:1px solid #b9ccce;border-radius:10px;font:inherit;background:#fff}
+button{border:0;border-radius:999px;background:var(--teal);color:white;font:700 1rem system-ui;padding:11px 19px;cursor:pointer;margin:8px 7px 0 0}
+button:hover{background:var(--teal-dark)}
+button.secondary{background:#e7eff0;color:var(--navy)}
+.feedback{font-weight:700;margin:12px 0 0}
+.correct{color:var(--good)}.incorrect{color:var(--bad)}
+.answer{display:none;background:#eff7f1;border-left:4px solid #65a77e;padding:10px 13px;border-radius:9px;margin-top:9px}
+.small{font-size:.9rem;color:var(--muted)}
+details{background:#f7f9f8;border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;color:var(--navy)}
+footer{text-align:center;color:var(--muted);font-size:.82rem;padding:20px 8px}
+.progress{height:8px;background:#e2ebeb;border-radius:99px;overflow:hidden;margin:12px 0}
+.progress span{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+@media(max-width:560px){body{padding:10px}.hero{padding:24px 20px}.card{padding:18px 15px}.reading{padding:15px}.hero:after{font-size:70px;right:12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <span class="pill">B1+ English · Lesson 2</span>
+  <div class="kicker">Read • notice • practise</div>
+  <h1>Giorgia's English Adventure</h1>
+  <p>A curious fable about old habits, new ideas and the surprising things verbs can do.</p>
+</header>
+
+<nav aria-label="Lesson sections">
+  <a href="#story">The story</a><a href="#grammar">Grammar notes</a><a href="#questions">Reading check</a><a href="#practice">Grammar practice</a>
+</nav>
+
+<section class="card" id="story">
+<h2>1. The Clockmaker's Secret</h2>
+<p class="lead">Read the fable. Look out for the highlighted grammar patterns.</p>
+<div class="reading">
+<p>In a small village, there lived a clockmaker called Elias. He <strong class="key">used to open</strong> his workshop at sunrise and <strong class="key">would spend</strong> the first hour listening to the clocks. He believed that every clock had its own voice. These days, however, he <strong class="key">is used to working</strong> late because customers often arrive after work.</p>
+<p>One morning, a young traveller brought him a beautiful old clock. “It has stopped,” she said. “I've tried <strong class="key">winding</strong> it, but nothing happens. Could you help?”</p>
+<p>Elias examined the clock carefully. “I remember <strong class="key">seeing</strong> one like this when I was an apprentice,” he said. “My teacher told me <strong class="key">to be</strong> patient and never force a mechanism.” He smiled. “I stopped <strong class="key">repairing</strong> clocks in a hurry a long time ago. Rushing usually creates more problems.”</p>
+<p>He began to work, but the tiny gears were difficult to reach. He tried <strong class="key">using</strong> a thinner tool. It worked for a moment, then the mechanism jammed again. “Perhaps I need to try <strong class="key">taking</strong> the back panel off,” he thought.</p>
+<p>The traveller grew impatient. “Why don't you just make it work?” she asked.</p>
+<p>“Because,” Elias replied, “a good craftsperson must learn <strong class="key">to listen</strong> before trying to fix something. I used to think that speed was the most important thing. Then I damaged a very valuable clock. That mistake taught me <strong class="key">to slow down</strong>.”</p>
+<p>At last, Elias found a tiny piece of dust caught between two gears. He removed it, and the clock began to tick. The traveller was delighted. “I regret <strong class="key">bringing</strong> it here so late in the day,” she said, “but I'm glad I did.”</p>
+<p>“Never regret <strong class="key">asking</strong> for help,” Elias answered. “And remember <strong class="key">to take</strong> care of the things you value.”</p>
+<p>As the traveller left, she noticed that the clock was not showing the correct time. “Oh no! It says five minutes past six, but it's nearly noon!”</p>
+<p>Elias laughed. “A clock can tell you the time, but it cannot tell you how to use it. That's something you have to learn for yourself.”</p>
+</div>
+<div class="note"><strong>Fable's message:</strong> Patience and careful attention are often more useful than speed. A mistake can teach us something valuable, provided we are willing to learn from it.</div>
+</section>
+
+<section class="card" id="grammar">
+<h2>2. Grammar notes</h2>
+<h3>A. Present and past habits</h3>
+<div class="example"><strong>used to + infinitive</strong> — a past habit or state that is no longer true.<br>“Elias <em>used to open</em> his workshop at sunrise.”</div>
+<div class="example"><strong>would + infinitive</strong> — repeated past actions, often in a story. It is not normally used for past states.<br>“He <em>would spend</em> the first hour listening to the clocks.”</div>
+<div class="example"><strong>be used to + noun / -ing</strong> — to be accustomed to something. It can refer to the present or the past.<br>“He <em>is used to working</em> late.”</div>
+<div class="example"><strong>get used to + noun / -ing</strong> — to become accustomed to something.<br>“He is getting used to working later.”</div>
+
+<h3>B. Verb patterns: infinitive or -ing?</h3>
+<p>Some verbs are followed by the infinitive with <em>to</em>; others are followed by the <em>-ing</em> form. Learn the pattern with the verb.</p>
+<div class="example"><strong>Verb + -ing:</strong> enjoy, avoid, finish, suggest, keep, mind.<br>“He stopped <em>repairing</em> clocks in a hurry.”</div>
+<div class="example"><strong>Verb + to-infinitive:</strong> want, decide, hope, promise, learn, manage.<br>“His teacher told him <em>to be</em> patient.”</div>
+<div class="example"><strong>Verb + object + to-infinitive:</strong> tell, ask, advise, encourage.<br>“His teacher told <em>him to be</em> patient.”</div>
+
+<h3>C. When the pattern changes the meaning</h3>
+<div class="example"><strong>stop doing</strong> = finish an activity.<br>“He stopped <em>repairing</em> clocks in a hurry.”</div>
+<div class="example"><strong>stop to do</strong> = pause one activity in order to do another.<br>“He stopped <em>to answer</em> the phone.”</div>
+<div class="example"><strong>remember doing</strong> = have a memory of something that happened.<br>“I remember <em>seeing</em> that clock.”</div>
+<div class="example"><strong>remember to do</strong> = not forget a task.<br>“Remember <em>to lock</em> the workshop.”</div>
+<div class="example"><strong>try doing</strong> = experiment with a possible solution.<br>“Try <em>using</em> a thinner tool.”</div>
+<div class="example"><strong>try to do</strong> = make an effort to do something difficult.<br>“He tried <em>to open</em> the case, but it was stuck.”</div>
+<div class="example"><strong>regret doing</strong> = feel sorry about something you did.<br>“I regret <em>bringing</em> it so late.”</div>
+<div class="example"><strong>regret to do</strong> = formally announce something unpleasant.<br>“We regret <em>to inform</em> you that the workshop is closed.”</div>
+<div class="note"><strong>Tip:</strong> The word after the verb matters. Sometimes it changes the grammar; sometimes it changes the meaning too.</div>
+</section>
+
+<section class="card" id="questions">
+<h2>3. Reading comprehension</h2>
+<p class="lead">Choose the best answer for each question.</p>
+<form id="readingQuiz">
+<div class="q"><p>1. What did Elias use to do at sunrise?</p>
+<label class="option"><input type="radio" name="r1" value="a"> He travelled to other villages.</label>
+<label class="option"><input type="radio" name="r1" value="b"> He opened his workshop.</label>
+<label class="option"><input type="radio" name="r1" value="c"> He repaired the traveller's clock.</label></div>
+<div class="q"><p>2. Why did the traveller bring the clock to Elias?</p>
+<label class="option"><input type="radio" name="r2" value="a"> It had stopped working.</label>
+<label class="option"><input type="radio" name="r2" value="b"> It was showing the wrong date.</label>
+<label class="option"><input type="radio" name="r2" value="c"> She wanted to sell it.</label></div>
+<div class="q"><p>3. What did Elias's teacher teach him?</p>
+<label class="option"><input type="radio" name="r3" value="a"> To work as quickly as possible.</label>
+<label class="option"><input type="radio" name="r3" value="b"> To replace old clocks.</label>
+<label class="option"><input type="radio" name="r3" value="c"> To be patient and avoid forcing things.</label></div>
+<div class="q"><p>4. What finally stopped the clock from working?</p>
+<label class="option"><input type="radio" name="r4" value="a"> A broken spring.</label>
+<label class="option"><input type="radio" name="r4" value="b"> A piece of dust.</label>
+<label class="option"><input type="radio" name="r4" value="c"> A missing hand.</label></div>
+<div class="q"><p>5. What is the main message of the fable?</p>
+<label class="option"><input type="radio" name="r5" value="a"> Expensive objects are always difficult to repair.</label>
+<label class="option"><input type="radio" name="r5" value="b"> It is better to work alone.</label>
+<label class="option"><input type="radio" name="r5" value="c"> Patience and attention are more useful than rushing.</label></div>
+<button type="button" onclick="checkReading()">Check my answers</button>
+<button type="button" class="secondary" onclick="resetQuiz('readingQuiz','readingResult')">Try again</button>
+<p id="readingResult" class="feedback" aria-live="polite"></p>
+</form>
+</section>
+
+<section class="card" id="practice">
+<h2>4. Grammar practice</h2>
+<p class="lead">Complete each sentence with the correct form of the verb in brackets.</p>
+<form id="grammarQuiz">
+<div class="q"><p>1. When I was younger, I ______ (visit) my grandparents every Sunday.</p><input type="text" name="g1" placeholder="Your answer"></div>
+<div class="q"><p>2. I'm not ______ (work) at weekends, so Saturday feels strange.</p><input type="text" name="g2" placeholder="Your answer"></div>
+<div class="q"><p>3. Please remember ______ (lock) the door before you leave.</p><input type="text" name="g3" placeholder="Your answer"></div>
+<div class="q"><p>4. I remember ______ (meet) her at the station years ago.</p><input type="text" name="g4" placeholder="Your answer"></div>
+<div class="q"><p>5. The computer wasn't working, so I tried ______ (restart) it.</p><input type="text" name="g5" placeholder="Your answer"></div>
+<div class="q"><p>6. He tried ______ (lift) the heavy box, but it was too heavy.</p><input type="text" name="g6" placeholder="Your answer"></div>
+<div class="q"><p>7. She stopped ______ (talk) when the teacher entered.</p><input type="text" name="g7" placeholder="Your answer"></div>
+<div class="q"><p>8. We stopped ______ (buy) some water on our way home.</p><input type="text" name="g8" placeholder="Your answer"></div>
+<button type="button" onclick="checkGrammar()">Check my answers</button>
+<button type="button" class="secondary" onclick="resetQuiz('grammarQuiz','grammarResult')">Clear answers</button>
+<p id="grammarResult" class="feedback" aria-live="polite"></p>
+</form>
+<details>
+<summary>Show the grammar practice answers</summary>
+<ol>
+<li>used to visit / would visit</li><li>used to working</li><li>to lock</li><li>meeting</li>
+<li>restarting</li><li>to lift</li><li>talking</li><li>to buy</li>
+</ol>
+<p class="small">For question 1, both answers are possible. For question 5, “to restart” is also possible if the meaning is making an effort rather than experimenting with a solution.</p>
+</details>
+</section>
+
+<section class="card">
+<h2>5. Your turn: think and speak</h2>
+<p>Answer these questions aloud, using complete sentences. Try to include at least one of the grammar patterns from today's lesson.</p>
+<ol>
+<li>What did you use to do when you were a child?</li>
+<li>What are you used to doing now that you found difficult at first?</li>
+<li>Have you ever tried doing something in a different way and discovered it worked better?</li>
+<li>Is there anything you regret doing or not doing?</li>
+<li>What is one thing you must remember to do this week?</li>
+</ol>
+<div class="note">Challenge: Tell a short story about a mistake that taught you something. Use <em>used to</em>, <em>would</em> and at least two verbs followed by either <em>-ing</em> or <em>to + infinitive</em>.</div>
+</section>
+
+<footer>© 2026 James Wynne · English with James</footer>
+</div>
+<script>
+function checkReading(){
+ const answers={r1:'b',r2:'a',r3:'c',r4:'b',r5:'c'};
+ let score=0,total=Object.keys(answers).length;
+ for(const [name,correct] of Object.entries(answers)){
+   const chosen=document.querySelector('input[name="'+name+'"]:checked');
+   if(chosen&&chosen.value===correct)score++;
+ }
+ const el=document.getElementById('readingResult');
+ el.textContent='You scored '+score+' out of '+total+'. '+(score===total?'Excellent work!':'Review the story and have another go.');
+ el.className='feedback '+(score===total?'correct':'incorrect');
+}
+function norm(s){return s.toLowerCase().trim().replace(/\s+/g,'').replace(/[.!?]/g,'')}
+function checkGrammar(){
+ const accepted={
+  g1:['usedtovisit','wouldvisit'],g2:['usedtoworking'],g3:['tolock'],
+  g4:['meeting'],g5:['restarting','torestart'],g6:['tolift'],
+  g7:['talking'],g8:['tobuy']
+ };
+ let score=0,total=Object.keys(accepted).length;
+ for(const [name,answers] of Object.entries(accepted)){
+   const field=document.querySelector('[name="'+name+'"]');
+   if(answers.includes(norm(field.value)))score++;
+ }
+ const el=document.getElementById('grammarResult');
+ el.textContent='You scored '+score+' out of '+total+'. '+(score===total?'Brilliant!':'Check the answer guide below and try again.');
+ el.className='feedback '+(score===total?'correct':'incorrect');
+}
+function resetQuiz(formId,resultId){
+ document.getElementById(formId).reset();
+ const el=document.getElementById(resultId);el.textContent='';el.className='feedback';
+}
+</script>
+</body>
+</html>
