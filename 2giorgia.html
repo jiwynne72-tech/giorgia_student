@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar Into Focus | Interactive Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-mint: #e6fffa;
+            --bg-pastel-blue: #ebf8ff;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --primary-teal: #0d9488;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #a78bfa, #f472b6);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            background: #faf5ff;
+            overflow-x: auto;
+            border-bottom: 2px solid #ede9fe;
+            padding: 5px;
+            gap: 5px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 12px 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: rgba(167, 139, 250, 0.1);
+            color: var(--primary-purple);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-purple);
+            color: white;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+            padding: 25px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rule-box {
+            background: #faf5ff;
+            border-left: 4px solid var(--primary-purple);
+            padding: 15px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .exercise-item {
+            background: #fdf4ff;
+            border: 1px solid #fbcfe8;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .exercise-item p {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .opt-btn, input[type="text"] {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid #d8b4fe;
+            background: white;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .opt-btn:hover {
+            background: #f3e8ff;
+        }
+
+        .opt-btn.correct {
+            background: #34d399 !important;
+            color: white;
+            border-color: #059669;
+        }
+
+        .opt-btn.incorrect {
+            background: #f87171 !important;
+            color: white;
+            border-color: #dc2626;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+
+        .check-input-btn {
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 8px;
+        }
+
+        .feedback {
+            margin-top: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Fable Reading Paragraph */
+        .fable-text {
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .fable-input {
+            width: 160px;
+            display: inline-block;
+            margin: 0 4px;
+            padding: 6px 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Video Section Styles */
+        .video-card {
+            background: #f8fafc;
+            border: 2px dashed #cbd5e0;
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .video-btn {
+            display: inline-block;
+            background: #ff0033;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        .video-btn:hover {
+            transform: scale(1.03);
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            resize: vertical;
+            height: 90px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.8);
+            width: 100%;
+            max-width: 850px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .tab-content { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>✨ Grammar Into Focus ✨</h1>
+        <p>Interactive Practice Suite • Into Focus B1+</p>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'tab1')">1. Habits</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab2')">2. Verb Patterns</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab3')">3. Change in Meaning</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab4')">4. The Bone in the Throat</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab5')">5. Summative</button>
+        <button class="tab-btn" onclick="openTab(event, 'tab6')">🎬 Grey's Anatomy</button>
+    </div>
+
+    <!-- TAB 1: HABITS -->
+    <div id="tab1" class="tab-content active">
+        <h2>Present and Past Habits</h2>
+        <div class="rule-box">
+            • <b>Present Simple / Past Simple</b>: Repeated actions or states.<br>
+            • <b>Used to + infinitive</b>: Past states or regular past habits that no longer happen.<br>
+            • <b>Would + infinitive</b>: Past actions or behavior typical for someone (not states).<br>
+            • <b>Present/Past Continuous with 'always'</b>: Complain about annoying persistent behavior.
+        </div>
+
+        <div class="exercise-item" data-answer="was always borrowing">
+            <p>1. When Marek and I shared a room in a hall of residence, he ___ my things without asking.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'was always borrowing', true)">was always borrowing</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'borrowed', false)">borrowed</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'would borrow', false)">would borrow</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="used to believe">
+            <p>2. When I was a kid, I ___ that my dad was a spy.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'would believe', false)">would believe</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'used to believe', true)">used to believe</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'was believing', false)">was believing</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="is always losing">
+            <p>3. It's so annoying! She ___ her notebook.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'will lose', false)">will lose</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'is always losing', true)">is always losing</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="would ask">
+            <p>4. Martha ___ the teacher plenty of questions after every lesson. She was very curious!</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'would ask', true)">would ask</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'is asking', false)">is asking</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="used to live">
+            <p>5. Before moving to London, my family ___ in a small cottage near the coast.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'would live', false)">would live</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'used to live', true)">used to live</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="will spend">
+            <p>6. Typical teenager! He ___ hours playing video games in his room.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'will spend', true)">will spend</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'used to spend', false)">used to spend</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="was constantly checking">
+            <p>7. During the trip, my brother ___ his phone every two minutes.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'was constantly checking', true)">was constantly checking</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'checked', false)">checked</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="did you use to like">
+            <p>8. ___ you like your primary school when you were little?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'Would you like', false)">Would you like</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'did you use to like', true)">Did you use to like</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- TAB 2: VERB PATTERNS -->
+    <div id="tab2" class="tab-content">
+        <h2>Verb Patterns & Combinations</h2>
+        <div class="rule-box">
+            • <b>Verb + to + infinitive</b> (agree, decide, manage, refuse, etc.)<br>
+            • <b>Verb + object + to + infinitive</b> (advise, encourage, force, remind, etc.)<br>
+            • <b>Verb + -ing</b> (admit, avoid, enjoy, keep, spend time, etc.)<br>
+            • <b>Verb + base form</b> (let, make)
+        </div>
+
+        <div class="exercise-item" data-answer="to leave">
+            <p>1. I decided ___ school and find a job.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'leaving', false)">leaving</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to leave', true)">to leave</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to help">
+            <p>2. My sister agreed ___ me with my homework.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'helping', false)">helping</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to help', true)">to help</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to study">
+            <p>3. Robert's mother encouraged him ___ Law.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'studying', false)">studying</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to study', true)">to study</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="wearing">
+            <p>4. I can't stand ___ a school uniform.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'wear', false)">wear</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'wearing', true)">wearing</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="hang out">
+            <p>5. Do his parents let him ___ with his friends?</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'to hang out', false)">to hang out</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'hang out', true)">hang out</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to make">
+            <p>6. They managed ___ the project before the deadline.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'making', false)">making</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to make', true)">to make</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="talking">
+            <p>7. She avoided ___ to him after the argument.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'to talk', false)">to talk</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'talking', true)">talking</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="clean">
+            <p>8. My dad made me ___ my room before going out.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'clean', true)">clean</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to clean', false)">to clean</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- TAB 3: CHANGE IN MEANING -->
+    <div id="tab3" class="tab-content">
+        <h2>Verbs with Change in Meaning</h2>
+        <div class="rule-box">
+            • <b>Stop + -ing</b> = finish an action. | <b>Stop + to-infinitive</b> = pause in order to do something.<br>
+            • <b>Remember + -ing</b> = past memory. | <b>Remember + to-infinitive</b> = duty/reminder not to forget.<br>
+            • <b>Try + -ing</b> = experiment. | <b>Try + to-infinitive</b> = make an effort.
+        </div>
+
+        <div class="exercise-item" data-answer="drinking">
+            <p>1. Liz stopped ___ coffee. (She doesn't drink coffee anymore.)</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'drinking', true)">drinking</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to drink', false)">to drink</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to drink">
+            <p>2. Liz stopped ___ some coffee. (She paused in order to drink coffee.)</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'drinking', false)">drinking</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to drink', true)">to drink</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="locking">
+            <p>3. Jenny remembers ___ the door. (She has a memory of locking it.)</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'locking', true)">locking</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to lock', false)">to lock</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to lock">
+            <p>4. Jenny remembers ___ the door. (Duty: Don't forget to do it!)</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'locking', false)">locking</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to lock', true)">to lock</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="turning">
+            <p>5. He tried ___ the computer off as an experiment to fix the glitch.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'turning', true)">turning</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to turn', false)">to turn</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="to turn">
+            <p>6. He tried ___ the heavy computer on, but it was completely broken.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'turning', false)">turning</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to turn', true)">to turn</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="calling">
+            <p>7. I remember ___ him last summer when we were in Rome.</p>
+            <div class="options">
+                <button class="opt-btn" onclick="checkOpt(this, 'calling', true)">calling</button>
+                <button class="opt-btn" onclick="checkOpt(this, 'to call', false)">to call</button>
+            </div>
+            <div class="feedback"></div>
+        </div>
+    </div>
+
+    <!-- TAB 4: THE BONE IN THE THROAT FABLE -->
+    <div id="tab4" class="tab-content">
+        <h2>🐺 The Bone in the Throat (Fable Practice)</h2>
+        <div class="rule-box">
+            Complete the fable text by typing the correct form of the verbs in brackets, combining past habits, narrative tenses, and verb patterns!
+        </div>
+
+        <div class="exercise-item">
+            <p class="fable-text">
+                Once upon a time, there 
+                <input type="text" id="fb1" class="fable-input" placeholder="be (past)"> 
+                <button class="check-input-btn" onclick="checkText('fb1', 'was')">✓</button>
+                a wolf. Near his house 
+                <input type="text" id="fb2" class="fable-input" placeholder="come"> 
+                <button class="check-input-btn" onclick="checkText('fb2', 'came')">✓</button>
+                a pond. Many animals 
+                <input type="text" id="fb3" class="fable-input" placeholder="come"> 
+                <button class="check-input-btn" onclick="checkText('fb3', 'came')">✓</button>
+                to drink water. The wolf 
+                <input type="text" id="fb4" class="fable-input" placeholder="always / look"> 
+                <button class="check-input-btn" onclick="checkText('fb4', 'was always looking')">✓</button>
+                for food. <br><br>
+                One day, he 
+                <input type="text" id="fb5" class="fable-input" placeholder="see"> 
+                <button class="check-input-btn" onclick="checkText('fb5', 'saw')">✓</button>
+                a dead bull. "Aha! What suddenly 
+                <input type="text" id="fb6" class="fable-input" placeholder="strike"> 
+                <button class="check-input-btn" onclick="checkText('fb6', 'struck')">✓</button>
+                me?", he 
+                <input type="text" id="fb7" class="fable-input" placeholder="think"> 
+                <button class="check-input-btn" onclick="checkText('fb7', 'thought')">✓</button>. "Look! Now I can eat all I want." He 
+                <input type="text" id="fb8" class="fable-input" placeholder="begin"> 
+                <button class="check-input-btn" onclick="checkText('fb8', 'began')">✓</button>
+                to eat the bull. A thought 
+                <input type="text" id="fb9" class="fable-input" placeholder="come"> 
+                <button class="check-input-btn" onclick="checkText('fb9', 'came')">✓</button>
+                this way: "If another beast 
+                <input type="text" id="fb10" class="fable-input" placeholder="come"> 
+                <button class="check-input-btn" onclick="checkText('fb10', 'comes')">✓</button>
+                while I am eating faster and faster, a piece of bone 
+                <input type="text" id="fb11" class="fable-input" placeholder="get"> 
+                <button class="check-input-btn" onclick="checkText('fb11', 'got')">✓</button>
+                stuck in his throat."<br><br>
+                He 
+                <input type="text" id="fb12" class="fable-input" placeholder="try"> 
+                <button class="check-input-btn" onclick="checkText('fb12', 'tried')">✓</button>
+                to get it out of his mouth. But he failed. Suddenly he remembered that a crane 
+                <input type="text" id="fb13" class="fable-input" placeholder="live"> 
+                <button class="check-input-btn" onclick="checkText('fb13', 'lived')">✓</button>
+                on the nearby riverbank. The wolf went to the crane and asked for help: "My dear Crane, help me to pull the bone out of my throat and I'll give you a present!"
+            </p>
+            <div class="feedback" id="ffb"></div>
+        </div>
+    </div>
+
+    <!-- TAB 5: SUMMATIVE PRACTICE -->
+    <div id="tab5" class="tab-content">
+        <h2>Summative Practice & Transformations</h2>
+        <div class="rule-box">
+            Test your overall mastery of habits, verb patterns, and structure transformations!
+        </div>
+
+        <div class="exercise-item" data-answer="used to play">
+            <p>1. When she was a child, she ___ tennis every Sunday afternoon. (Use: USED TO)</p>
+            <input type="text" placeholder="Type correct answer..." id="t1">
+            <button class="check-input-btn" onclick="checkText('t1', 'used to play')">Check</button>
+            <div class="feedback" id="ft1"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="would stay up">
+            <p>2. Sophie never allowed her children to stay up late during the week. (Use: WOULD)</p>
+            <input type="text" placeholder="Type correct answer..." id="t2">
+            <button class="check-input-btn" onclick="checkText('t2', 'would stay up')">Check</button>
+            <div class="feedback" id="ft2"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="mind me helping">
+            <p>3. Can I help you with your homework? (Use: MIND)</p>
+            <input type="text" placeholder="Type correct answer..." id="t3">
+            <button class="check-input-btn" onclick="checkText('t3', 'mind me helping')">Check</button>
+            <div class="feedback" id="ft3"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="managed to finish">
+            <p>4. He was able to complete the project in time for the presentation. (Use: MANAGED)</p>
+            <input type="text" placeholder="Type correct answer..." id="t4">
+            <button class="check-input-btn" onclick="checkText('t4', 'managed to finish')">Check</button>
+            <div class="feedback" id="ft4"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="allowed to buy">
+            <p>5. Jake has been forbidden from using his dad's computer. (Use: ALLOWED)</p>
+            <input type="text" placeholder="Type correct answer..." id="t5">
+            <button class="check-input-btn" onclick="checkText('t5', 'allowed to buy')">Check</button>
+            <div class="feedback" id="ft5"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="stopped going">
+            <p>6. Janice doesn't go to dance class anymore. (Use: STOPPED)</p>
+            <input type="text" placeholder="Type correct answer..." id="t6">
+            <button class="check-input-btn" onclick="checkText('t6', 'stopped going')">Check</button>
+            <div class="feedback" id="ft6"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="advised me to start">
+            <p>7. "Why shouldn't you start a new hobby, Ms Dodson?", the doctor said. (Use: ADVISED)</p>
+            <input type="text" placeholder="Type correct answer..." id="t7">
+            <button class="check-input-btn" onclick="checkText('t7', 'advised me to start')">Check</button>
+            <div class="feedback" id="ft7"></div>
+        </div>
+
+        <div class="exercise-item" data-answer="encouraged him to study">
+            <p>8. His teacher told him that dropping Spanish was a bad idea. (Use: ENCOURAGED)</p>
+            <input type="text" placeholder="Type correct answer..." id="t8">
+            <button class="check-input-btn" onclick="checkText('t8', 'encouraged him to study')">Check</button>
+            <div class="feedback" id="ft8"></div>
+        </div>
+    </div>
+
+    <!-- TAB 6: GREY'S ANATOMY STUDY -->
+    <div id="tab6" class="tab-content">
+        <h2>🎬 Grey's Anatomy Grammar & Listening</h2>
+        <div class="rule-box">
+            Watch the selected clips from <i>Grey's Anatomy</i> to examine spoken habits, persistent behaviors, and character dynamics in authentic medical drama contexts.
+        </div>
+
+        <!-- Clip 1 -->
+        <div class="video-card">
+            <h3>Clip 1: Habitual Behavior & Workplace Dynamics</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 10px 0;">
+                Watch this scene to spot examples of <b>used to</b>, <b>would</b>, or persistent actions with <b>always</b>.
+            </p>
+            <a href="https://www.youtube.com/watch?v=FsV_xbUYmHw" target="_blank" class="video-btn">
+                ▶ Watch Clip 1 on YouTube
+            </a>
+        </div>
+
+        <div class="exercise-item">
+            <p>1. Comprehension & Grammar Task: Write down one sentence from the clip or your own observation describing a character's recurring habit using <i>used to</i> or <i>would</i>.</p>
+            <textarea placeholder="Type your sentence and analysis here..."></textarea>
+        </div>
+
+        <!-- Clip 2 -->
+        <div class="video-card">
+            <h3>Clip 2: Point of View & Verb Patterns</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin: 10px 0;">
+                Examine how characters make decisions, refuse choices, or manage high-pressure situations under verb patterns like <i>decide to</i>, <i>manage to</i>, or <i>refuse to</i>.
+            </p>
+            <a href="https://www.youtube.com/watch?v=3BML8PP8mJk" target="_blank" class="video-btn">
+                ▶ Watch Clip 2 on YouTube
+            </a>
+        </div>
+
+        <div class="exercise-item">
+            <p>2. Point of View Question: If you were in the main character's position during this scene, how would you handle the conflict? Use at least two advanced verb patterns from Unit 1 (e.g., <i>refuse to</i>, <i>manage to</i>, <i>avoid</i>).</p>
+            <textarea placeholder="Write your response from your point of view..."></textarea>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 James Wynne</p>
+        <p style="margin-top: 5px;">
+            <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+            <a href="mailto:james_wynne@hotmail.com">email</a> | 
+            <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+        </p>
+    </footer>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        const contents = document.getElementsByClassName("tab-content");
+        for (let i = 0; i < contents.length; i++) {
+            contents[i].classList.remove("active");
+        }
+        const btns = document.getElementsByClassName("tab-btn");
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+        }
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+
+    function checkOpt(button, selected, isCorrect) {
+        const parent = button.parentElement;
+        const buttons = parent.getElementsByClassName('opt-btn');
+        for (let btn of buttons) {
+            btn.classList.remove('correct', 'incorrect');
+        }
+        const feedback = parent.nextElementSibling;
+        if (isCorrect) {
+            button.classList.add('correct');
+            feedback.style.color = '#059669';
+            feedback.textContent = '✨ Spot on! Excellent job.';
+        } else {
+            button.classList.add('incorrect');
+            feedback.style.color = '#dc2626';
+            feedback.textContent = '❌ Not quite right. Try another option!';
+        }
+    }
+
+    function checkText(inputId, correctAns) {
+        const val = document.getElementById(inputId).value.trim().toLowerCase();
+        const feedback = document.getElementById('ffb') || document.getElementById('f' + inputId);
+        if (val === correctAns.toLowerCase()) {
+            document.getElementById(inputId).style.borderColor = '#34d399';
+            document.getElementById(inputId).style.background = '#e6fffa';
+            if(feedback) {
+                feedback.style.color = '#059669';
+                feedback.textContent = '🎉 Correct!';
+            }
+        } else {
+            document.getElementById(inputId).style.borderColor = '#f87171';
+            document.getElementById(inputId).style.background = '#fff5f5';
+            if(feedback) {
+                feedback.style.color = '#dc2626';
+                feedback.textContent = '💡 Check the verb form for "' + inputId.toUpperCase() + '".';
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

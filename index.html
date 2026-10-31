@@ -1,237 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fff8ed">
-<title>Giorgia’s English Page</title>
-<style>
-:root{
- --ink:#27324a;--muted:#65718a;--paper:#fffdf8;--pink:#ff7e9d;--peach:#ffbd8a;
- --yellow:#ffe58a;--mint:#a8e6cf;--blue:#a9d8ff;--lav:#cbb8ff;--line:#e9e5dc;
- --shadow:0 12px 30px rgba(53,65,92,.09)
-}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(135deg,#fff8ed 0%,#f2fbff 48%,#fff2f6 100%);
- color:var(--ink);font:16px/1.6 "Trebuchet MS",Arial,sans-serif}
-header{position:relative;overflow:hidden;text-align:center;padding:52px 20px 42px;
- background:linear-gradient(120deg,#ffe5b9,#ffdce7 55%,#dff3ff)}
-header:before,header:after{content:"";position:absolute;border-radius:50%;opacity:.55}
-header:before{width:180px;height:180px;background:#fff;left:-55px;top:-75px}
-header:after{width:140px;height:140px;background:#fff;right:-35px;bottom:-65px}
-.sparkle{font-size:25px;letter-spacing:10px}
-h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.1;margin:12px 0 8px;color:#34405d}
-.subtitle{margin:0;color:#596783;font-size:1.08rem}
-.wrap{max-width:940px;margin:28px auto 70px;padding:0 16px}
-.intro{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 22px;box-shadow:var(--shadow);margin-bottom:22px}
-.section{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:24px;margin:20px 0;box-shadow:var(--shadow)}
-.section h2{font-size:1.45rem;margin:0 0 5px}
-.kicker{font-size:.78rem;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;color:#7b8294}
-h3{margin:20px 0 8px;font-size:1.08rem}
-p{margin:8px 0}
-.note{background:#f4f7ff;border-left:5px solid var(--blue);padding:13px 16px;border-radius:10px;margin:12px 0}
-.tip{background:#fff5df;border-left:5px solid var(--peach);padding:13px 16px;border-radius:10px;margin:12px 0}
-.example{display:inline-block;background:#f2f8f4;border-radius:8px;padding:2px 8px;margin:3px 2px}
-.pill{display:inline-block;font-size:.78rem;font-weight:bold;border-radius:99px;padding:3px 10px;margin-right:6px;background:#fce3eb}
-.pill.blue{background:#e1f1ff}.pill.green{background:#def6e9}.pill.gold{background:#fff0c7}
-.question{padding:14px 15px;border:1px solid var(--line);border-radius:14px;margin:12px 0;background:white}
-.qtitle{font-weight:bold;margin-bottom:8px}
-.options{display:grid;gap:7px}
-label.option{display:flex;gap:9px;align-items:flex-start;padding:7px 10px;border-radius:9px;background:#fafaff;cursor:pointer}
-label.option:hover{background:#f0f5ff}
-input{accent-color:#7770cf;margin-top:5px}
-.feedback{font-size:.9rem;font-weight:bold;margin-top:8px;min-height:1.2em}
-.correct{color:#18845c}.wrong{color:#c34c67}
-.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-button{border:0;border-radius:999px;padding:11px 19px;font:inherit;font-weight:bold;cursor:pointer;background:#5968a9;color:white}
-button.secondary{background:#f1eafa;color:#51477e}
-button:hover{filter:brightness(.97);transform:translateY(-1px)}
-.result{font-weight:bold;margin:12px 0}
-details{margin-top:14px;background:#f8f7ff;border-radius:12px;padding:10px 14px}
-summary{font-weight:bold;cursor:pointer}
-footer{text-align:center;color:var(--muted);font-size:.9rem;padding:20px}
-@media(max-width:600px){.section{padding:18px}.intro{padding:16px}header{padding:40px 16px}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f3e8ff">
+    <title>Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-blue: #ebf8ff;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.12);
+            overflow: hidden;
+            margin: auto;
+            text-align: center;
+            padding: 40px 30px;
+        }
+
+        .avatar-container {
+            margin-bottom: 20px;
+        }
+
+        .avatar-container img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.2);
+            border: 3px solid #fff;
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+        }
+
+        .lesson-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .lesson-card {
+            background: linear-gradient(135deg, #faf5ff, #fdf4ff);
+            border: 2px solid #fbcfe8;
+            border-radius: 16px;
+            padding: 22px 24px;
+            text-decoration: none;
+            color: var(--text-main);
+            text-align: left;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-purple);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.15);
+        }
+
+        .lesson-card h2 {
+            font-size: 1.25rem;
+            color: var(--primary-pink);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lesson-card h2 span {
+            font-size: 0.85rem;
+            background: #fce7f3;
+            color: #be185d;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .lesson-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 650px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<header>
- <div class="sparkle">✦ ✿ ✦</div>
- <h1>Giorgia’s English Page</h1>
- <p class="subtitle">Notes and exercises from our first lesson 30/10/26! 🌈</p>
-</header>
-<main class="wrap">
- <div class="intro">
-  Read the notes first, then choose the best answer in each exercise. Some questions are deliberately tricky, so take your time!
-  <p><span class="pill">① Quantifiers & nouns</span><span class="pill blue">② Grammar & pronunciation</span><span class="pill green">Vocabulary & tenses</span></p>
- </div>
 
- <section class="section">
-  <div class="kicker">Reported speech</div><h2>1. Saying what someone said 💬</h2>
-  <p>We use <strong>reported speech</strong> when we tell someone what another person said, without repeating their exact words.</p>
-  <div class="note"><strong>Direct speech:</strong> “I am tired,” Anna said.<br><strong>Reported speech:</strong> Anna said (that) she was tired.</div>
-  <p>When the reporting verb is in the past (for example, <em>said</em> or <em>told</em>), the tense often moves one step back:</p>
-  <ul>
-   <li>present simple → past simple: “I work” → He said he <strong>worked</strong>.</li>
-   <li>present continuous → past continuous: “I am working” → He said he <strong>was working</strong>.</li>
-   <li>will → would: “I will call” → He said he <strong>would call</strong>.</li>
-   <li>can → could: “I can swim” → He said he <strong>could swim</strong>.</li>
-  </ul>
-  <p>Pronouns and time expressions may also change: <em>my</em> → <em>her</em>, <em>today</em> → <em>that day</em>, <em>tomorrow</em> → <em>the following day</em>.</p>
-  <h3>SAID vs. TOLD</h3>
-  <div class="note"><strong>SAID</strong> usually has no person immediately after it: <em>She said (that) she was busy.</em><br>
-  <strong>TOLD</strong> needs the person who receives the information: <em>She told <u>me</u> (that) she was busy.</em></div>
-  <p>Think: <strong>say something</strong>, but <strong>tell <b>someone</b> something</strong>.</p>
-  <div class="question" data-answer="b"><div class="qtitle">1. Choose the correct sentence.</div><div class="options">
-   <label class="option"><input type="radio" name="r1" value="a"> She said me that she was leaving.</label>
-   <label class="option"><input type="radio" name="r1" value="b"> She told me that she was leaving.</label>
-   <label class="option"><input type="radio" name="r1" value="c"> She told that she was leaving.</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">2. “I don't like coffee,” he said. → He said that he _____ coffee.</div><div class="options">
-   <label class="option"><input type="radio" name="r2" value="a"> doesn't like</label><label class="option"><input type="radio" name="r2" value="b"> hadn't liked</label><label class="option"><input type="radio" name="r2" value="c"> didn't like</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">3. “I'll help you,” Marta told me. → Marta told me she _____ help me.</div><div class="options">
-   <label class="option"><input type="radio" name="r3" value="a"> would</label><label class="option"><input type="radio" name="r3" value="b"> will</label><label class="option"><input type="radio" name="r3" value="c"> had</label></div><div class="feedback"></div></div>
- </section>
+<div class="container">
+    <div class="avatar-container">
+        <!-- References the custom icon created for Giorgia -->
+        <img src="icon-giorgia.svg" alt="Giorgia Icon">
+    </div>
+    
+    <header>
+        <h1>Welcome, Giorgia! ✨</h1>
+        <p>Choose your lesson notes and interactive exercises below:</p>
+    </header>
 
- <section class="section">
-  <div class="kicker">One tiny verb, a lot of meanings</div><h2>2. GET 🎁</h2>
-  <p><strong>Get</strong> is one of the most flexible verbs in English. Its meaning changes according to the words around it. That is why it can be difficult for non-native speakers: one familiar-looking verb can express ideas that require many different verbs in other languages.</p>
-  <h3>Common meanings of GET</h3>
-  <ul>
-   <li><strong>Receive:</strong> I got a message from Luca.</li>
-   <li><strong>Obtain / buy:</strong> I need to get some milk.</li>
-   <li><strong>Become:</strong> It's getting cold. / She gets nervous before exams.</li>
-   <li><strong>Arrive:</strong> What time did you get home?</li>
-   <li><strong>Understand:</strong> I don't get this joke.</li>
-   <li><strong>Fetch:</strong> Could you get my glasses?</li>
-   <li><strong>Have an experience / suffer:</strong> He got a parking ticket.</li>
-  </ul>
-  <div class="tip"><strong>Useful pattern:</strong> <em>get + adjective</em> often means “become”: <em>get tired, get better, get angry, get ready</em>.<br>
-  <strong>Get to + place</strong> means arrive: <em>How do I get to the station?</em></div>
-  <div class="question" data-answer="b"><div class="qtitle">4. “I don't get what you're saying.” What does <em>get</em> mean here?</div><div class="options">
-   <label class="option"><input type="radio" name="g1" value="a"> Receive</label><label class="option"><input type="radio" name="g1" value="b"> Understand</label><label class="option"><input type="radio" name="g1" value="c"> Become</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">5. “It's getting dark.” means…</div><div class="options">
-   <label class="option"><input type="radio" name="g2" value="a"> It is becoming dark.</label><label class="option"><input type="radio" name="g2" value="b"> It has arrived in the dark.</label><label class="option"><input type="radio" name="g2" value="c"> It is receiving darkness.</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">6. “What time did you get to the airport?” asks…</div><div class="options">
-   <label class="option"><input type="radio" name="g3" value="a"> What time did you leave?</label><label class="option"><input type="radio" name="g3" value="b"> What did you buy?</label><label class="option"><input type="radio" name="g3" value="c"> What time did you arrive?</label></div><div class="feedback"></div></div>
- </section>
+    <div class="lesson-grid">
+        <a href="1giorgia.html" class="lesson-card">
+            <h2>Lesson 1 <span>30/10/2026</span></h2>
+            <p>Reported speech fundamentals, versatile uses of the verb 'get', countable/uncountable nouns, modal contractions, and adjective feelings (-ed vs -ing).</p>
+        </a>
 
- <section class="section">
-  <div class="kicker">① Quantifiers & nouns</div><h2>3. Countable or uncountable? 🍓</h2>
-  <p><strong>Countable nouns</strong> have singular and plural forms. You can count them: <em>one apple, two apples; a chair, three chairs</em>.</p>
-  <p><strong>Uncountable nouns</strong> are not normally counted individually. They usually have no plural form: <em>water, information, advice, furniture, luggage, rice</em>.</p>
-  <div class="note"><strong>Watch out!</strong> Some nouns that are countable in other languages are uncountable in English: <em>advice, information, news, furniture</em>. Say <em>a piece of advice</em>, not <em>an advice</em>.</div>
-  <h3>MANY vs. MUCH</h3>
-  <ul><li><strong>Many</strong> + plural countable nouns: <em>How many books have you got?</em></li><li><strong>Much</strong> + uncountable nouns: <em>How much time do we have?</em></li></ul>
-  <p>In affirmative everyday sentences, <em>a lot of</em> is often more natural: <em>I've got a lot of friends / a lot of work.</em></p>
-  <div class="question" data-answer="b"><div class="qtitle">7. There isn't _____ information in the email.</div><div class="options"><label class="option"><input type="radio" name="q1" value="a"> many</label><label class="option"><input type="radio" name="q1" value="b"> much</label><label class="option"><input type="radio" name="q1" value="c"> a few</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">8. How _____ pieces of luggage are you taking?</div><div class="options"><label class="option"><input type="radio" name="q2" value="a"> many</label><label class="option"><input type="radio" name="q2" value="b"> much</label><label class="option"><input type="radio" name="q2" value="c"> little</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">9. The news _____ surprising.</div><div class="options"><label class="option"><input type="radio" name="q3" value="a"> are</label><label class="option"><input type="radio" name="q3" value="b"> have</label><label class="option"><input type="radio" name="q3" value="c"> is</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="b"><div class="qtitle">10. We don't have _____ time, but we have _____ ideas.</div><div class="options"><label class="option"><input type="radio" name="q4" value="a"> many / much</label><label class="option"><input type="radio" name="q4" value="b"> much / many</label><label class="option"><input type="radio" name="q4" value="c"> many / many</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">11. I'd like _____ advice before making a decision.</div><div class="options"><label class="option"><input type="radio" name="q5" value="a"> some</label><label class="option"><input type="radio" name="q5" value="b"> an</label><label class="option"><input type="radio" name="q5" value="c"> many</label></div><div class="feedback"></div></div>
- </section>
+        <a href="2giorgia.html" class="lesson-card">
+            <h2>Lesson 2 <span>03/11/2026</span></h2>
+            <p>Into Focus B1+ practice covering present & past habits, complex verb patterns, semantic changes in verbs, and interactive fable composition.</p>
+        </a>
+    </div>
+</div>
 
- <section class="section">
-  <div class="kicker">② Grammar & pronunciation fundamentals</div><h2>4. Modals, contractions & the little S 🔤</h2>
-  <h3>Modals and contractions</h3>
-  <p>Modal verbs include <strong>can, could, should, must, may, might</strong> and <strong>will</strong>. They are followed by the <strong>base form</strong> of the verb, without <em>to</em> (except in expressions such as <em>ought to</em>).</p>
-  <p><em>She can swim.</em> ✓ &nbsp; <em>She can to swim.</em> ✗</p>
-  <p>Common contractions in speech and informal writing:</p>
-  <ul><li><em>do not → don't</em>; <em>does not → doesn't</em></li><li><em>cannot → can't</em>; <em>will not → won't</em></li><li><em>should have → should've</em>; <em>would have → would've</em></li></ul>
-  <div class="tip">In <em>should've</em>, <em>could've</em> and <em>would've</em>, the written contraction ends in <strong>'ve</strong>, but the sound is usually /əv/ or /v/. In fast speech, the words can sound very compressed.</div>
-  <h3>The third-person singular -S</h3>
-  <p>In the present simple, add <strong>-s</strong> or <strong>-es</strong> to the verb with <em>he, she</em> or <em>it</em>: <em>she works, he watches, it rains</em>.</p>
-  <p>Pronunciation has three common endings:</p>
-  <ul><li>/s/ after a voiceless sound: <em>works, stops</em></li><li>/z/ after a voiced sound or vowel: <em>plays, runs</em></li><li>/ɪz/ after sibilant sounds: <em>watches, washes, chooses</em></li></ul>
-  <p><strong>Important:</strong> after <em>does</em> or <em>doesn't</em>, the main verb has no -s: <em>Does she work?</em> / <em>She doesn't work.</em></p>
-  <h3>Past tense + infinitive</h3>
-  <p>Some verbs in the past are followed by a <strong>to-infinitive</strong> (to + base verb). The first verb is in the past; the infinitive describes the action, decision, plan or intention.</p>
-  <ul><li><strong>wanted to:</strong> I wanted to call you.</li><li><strong>decided to:</strong> She decided to study medicine.</li><li><strong>promised to:</strong> He promised to help.</li><li><strong>managed to:</strong> We managed to catch the train.</li><li><strong>forgot to:</strong> I forgot to lock the door.</li></ul>
-  <div class="note">Not every past-tense verb takes <em>to + infinitive</em>. For example, <em>enjoy</em> takes an -ing form: <em>I enjoyed swimming</em>, not <em>I enjoyed to swim</em>.</div>
-  <h3>Choose the best answer</h3>
-  <div class="question" data-answer="c"><div class="qtitle">12. You _____ wear a seat belt. It's the law.</div><div class="options"><label class="option"><input type="radio" name="m1" value="a"> should to</label><label class="option"><input type="radio" name="m1" value="b"> must to</label><label class="option"><input type="radio" name="m1" value="c"> must</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="b"><div class="qtitle">13. Which contraction is correct?</div><div class="options"><label class="option"><input type="radio" name="m2" value="a"> should of</label><label class="option"><input type="radio" name="m2" value="b"> should've</label><label class="option"><input type="radio" name="m2" value="c"> should'of</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">14. My brother _____ the bus every morning.</div><div class="options"><label class="option"><input type="radio" name="m3" value="a"> catches</label><label class="option"><input type="radio" name="m3" value="b"> catch</label><label class="option"><input type="radio" name="m3" value="c"> catchs</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">15. Which pair has the same final -s sound?</div><div class="options"><label class="option"><input type="radio" name="m4" value="a"> works / plays</label><label class="option"><input type="radio" name="m4" value="b"> watches / runs</label><label class="option"><input type="radio" name="m4" value="c"> runs / plays</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="b"><div class="qtitle">16. She _____ to learn Japanese when she was at university.</div><div class="options"><label class="option"><input type="radio" name="m5" value="a"> decided learning</label><label class="option"><input type="radio" name="m5" value="b"> decided to learn</label><label class="option"><input type="radio" name="m5" value="c"> decided learn</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">17. He _____ to open the window, but it was stuck.</div><div class="options"><label class="option"><input type="radio" name="m6" value="a"> tried</label><label class="option"><input type="radio" name="m6" value="b"> try</label><label class="option"><input type="radio" name="m6" value="c"> trying</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">18. _____ she like spicy food?</div><div class="options"><label class="option"><input type="radio" name="m7" value="a"> Do</label><label class="option"><input type="radio" name="m7" value="b"> Is</label><label class="option"><input type="radio" name="m7" value="c"> Does</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="b"><div class="qtitle">19. They promised _____ us as soon as they arrived.</div><div class="options"><label class="option"><input type="radio" name="m8" value="a"> calling</label><label class="option"><input type="radio" name="m8" value="b"> to call</label><label class="option"><input type="radio" name="m8" value="c"> call</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">20. He doesn't _____ coffee after 6 p.m.</div><div class="options"><label class="option"><input type="radio" name="m9" value="a"> drink</label><label class="option"><input type="radio" name="m9" value="b"> drinks</label><label class="option"><input type="radio" name="m9" value="c"> drinking</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">21. I managed _____ the last train.</div><div class="options"><label class="option"><input type="radio" name="m10" value="a"> catch</label><label class="option"><input type="radio" name="m10" value="b"> catching</label><label class="option"><input type="radio" name="m10" value="c"> to catch</label></div><div class="feedback"></div></div>
- </section>
-
- <section class="section">
-  <div class="kicker">Adjectives & vocabulary</div><h2>5. Interested vs. interesting ✨</h2>
-  <p>Both words come from the verb <em>interest</em>, but they describe different things.</p>
-  <div class="note"><strong>Interested</strong> describes how a person (or animal) feels: <em>I am interested in astronomy.</em><br>
-  <strong>Interesting</strong> describes the thing that creates the feeling: <em>Astronomy is interesting.</em></div>
-  <p>A useful way to remember:</p>
-  <ul><li><strong>-ed</strong> = the person experiencing the feeling.</li><li><strong>-ing</strong> = the thing causing the feeling.</li></ul>
-  <p>Compare: <em>The lesson is boring, so the students are bored.</em> / <em>The film is exciting, so I am excited.</em></p>
-  <div class="question" data-answer="b"><div class="qtitle">22. I'm really _____ in learning about other cultures.</div><div class="options"><label class="option"><input type="radio" name="a1" value="a"> interesting</label><label class="option"><input type="radio" name="a1" value="b"> interested</label><label class="option"><input type="radio" name="a1" value="c"> interest</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">23. That documentary was so _____. I watched it twice!</div><div class="options"><label class="option"><input type="radio" name="a2" value="a"> interesting</label><label class="option"><input type="radio" name="a2" value="b"> interested</label><label class="option"><input type="radio" name="a2" value="c"> interest</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">24. The children were _____ by the magician's tricks.</div><div class="options"><label class="option"><input type="radio" name="a3" value="a"> interesting</label><label class="option"><input type="radio" name="a3" value="b"> interest</label><label class="option"><input type="radio" name="a3" value="c"> interested</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="b"><div class="qtitle">25. I find his stories _____, even when they're about ordinary things.</div><div class="options"><label class="option"><input type="radio" name="a4" value="a"> interested</label><label class="option"><input type="radio" name="a4" value="b"> interesting</label><label class="option"><input type="radio" name="a4" value="c"> interest</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">26. Are you _____ in joining our book club?</div><div class="options"><label class="option"><input type="radio" name="a5" value="a"> interested</label><label class="option"><input type="radio" name="a5" value="b"> interesting</label><label class="option"><input type="radio" name="a5" value="c"> interest</label></div><div class="feedback"></div></div>
- </section>
-
- <section class="section">
-  <div class="kicker">Tense contrast & error correction</div><h2>6. Since, for and the present perfect ⏳</h2>
-  <p>Compare these two sentences:</p>
-  <div class="note"><strong>Incorrect:</strong> <em>I started skiing since when I was four.</em><br>
-  <strong>Correct:</strong> <em>I've been skiing since I was four.</em></div>
-  <p><strong>I started skiing</strong> is the past simple. It describes the moment an activity began. We can say: <em>I started skiing when I was four.</em> We do not normally use <em>since</em> with this past-simple structure.</p>
-  <p><strong>I've been skiing</strong> is the present perfect continuous. It describes an activity that began in the past and has continued up to now (or is still relevant now). Use <strong>since</strong> for the starting point and <strong>for</strong> for the duration.</p>
-  <ul><li><strong>Since + starting point:</strong> since I was four, since Monday, since 2020.</li><li><strong>For + period of time:</strong> for ten years, for three days, for a long time.</li></ul>
-  <p>More examples: <em>I've lived here since 2021.</em> / <em>I've been learning English for six years.</em></p>
-  <div class="tip">You can also say <em>I've skied since I was four</em>. The present perfect simple is possible because <em>ski</em> can describe repeated experience. The continuous form emphasises the ongoing activity.</div>
-  <h3>Correct the sentence by choosing the best option</h3>
-  <div class="question" data-answer="b"><div class="qtitle">27. I _____ the piano when I was six.</div><div class="options"><label class="option"><input type="radio" name="t1" value="a"> have started playing</label><label class="option"><input type="radio" name="t1" value="b"> started playing</label><label class="option"><input type="radio" name="t1" value="c"> have been start playing</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="c"><div class="qtitle">28. She has worked at the hospital _____ 2019.</div><div class="options"><label class="option"><input type="radio" name="t2" value="a"> for</label><label class="option"><input type="radio" name="t2" value="b"> during</label><label class="option"><input type="radio" name="t2" value="c"> since</label></div><div class="feedback"></div></div>
-  <div class="question" data-answer="a"><div class="qtitle">29. We've been waiting _____ two hours. Where are they?</div><div class="options"><label class="option"><input type="radio" name="t3" value="a"> for</label><label class="option"><input type="radio" name="t3" value="b"> since</label><label class="option"><input type="radio" name="t3" value="c"> from</label></div><div class="feedback"></div></div>
- </section>
-
- <section class="section">
-  <h2>🌟 Your results</h2>
-  <p>When you've answered all the questions, press the button to check your work. You can change your answers and check again.</p>
-  <div class="controls"><button onclick="checkAnswers()">Check my answers</button><button class="secondary" onclick="resetQuiz()">Start again</button></div>
-  <div id="result" class="result" aria-live="polite"></div>
-  <details><summary>Show the answer key</summary>
-   <p>1 B · 2 C · 3 A · 4 B · 5 A · 6 C · 7 B · 8 A · 9 C · 10 B · 11 A · 12 C · 13 B · 14 A · 15 C · 16 B · 17 A · 18 C · 19 B · 20 A · 21 C · 22 B · 23 A · 24 C · 25 B · 26 A · 27 B · 28 C · 29 A</p>
-  </details>
- </section>
- <footer>Made with a smile for Giorgia 💛 Keep curious, keep practising!</footer>
-</main>
-<script>
-function checkAnswers(){
- const qs=[...document.querySelectorAll('.question')];let score=0,answered=0;
- qs.forEach((q,i)=>{
-  const chosen=q.querySelector('input:checked'),fb=q.querySelector('.feedback');
-  if(!chosen){fb.textContent='Choose an answer.';fb.className='feedback';return}
-  answered++;
-  if(chosen.value===q.dataset.answer){score++;fb.textContent='✓ Correct!';fb.className='feedback correct'}
-  else{fb.textContent='Not quite. Try again, or check the answer key.';fb.className='feedback wrong'}
- });
- document.getElementById('result').textContent=`You scored ${score} out of ${qs.length}. You answered ${answered} question${answered===1?'':'s'}.`;
-}
-function resetQuiz(){
- document.querySelectorAll('input[type=radio]').forEach(x=>x.checked=false);
- document.querySelectorAll('.feedback').forEach(x=>{x.textContent='';x.className='feedback'});
- document.getElementById('result').textContent='';
- window.scrollTo({top:0,behavior:'smooth'});
-}
-<footer style="
-    text-align: center;
-    font-size: 11px;
-    color: #888;
-    padding: 20px 10px;
-    margin-top: 30px;
-"
-</script>
-</body>
 <footer>
-    © 2026 James Wynne |
-    <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> |
-    <a href="mailto:james_wynne@hotmail.com">email</a> |
-    <a href="https://wa.me/393515316723" target="_blank">whatsapp</a>
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
 </footer>
+
+<script>
+    // Register Service Worker for PWA capabilities
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registered! Scope:', reg.scope))
+                .catch(err => console.log('Service Worker registration failed:', err));
+        });
+    }
+</script>
+
+</body>
 </html>
