@@ -3,7 +3,7 @@ const urlsToCache = [
   'index.html',
   '1giorgia.html',
   '2giorgia.html',
-  'icon-giorgia.png',
+  'giorgia.png',
   'manifest.json'
 ];
 
