@@ -72,7 +72,29 @@
         header p {
             font-size: 1.05rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
+            margin-bottom: 25px;
+        }
+
+        /* Install Button Styling */
+        .install-btn {
+            display: none; /* Hidden by default until beforeinstallprompt fires */
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+            transition: all 0.25s ease;
+            margin-bottom: 30px;
+        }
+
+        .install-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
         }
 
         .lesson-grid {
@@ -156,13 +178,16 @@
 <div class="container">
     <div class="avatar-container">
         <!-- References the custom icon created for Giorgia -->
-        <img src="giorgia.png" alt="Giorgia Icon">
+        <img src="icon-giorgia.svg" alt="Giorgia Icon">
     </div>
     
     <header>
         <h1>Welcome, Giorgia! ✨</h1>
         <p>Choose your lesson notes and interactive exercises below:</p>
     </header>
+
+    <!-- PWA Install Button -->
+    <button id="installAppBtn" class="install-btn">📲 Install App</button>
 
     <div class="lesson-grid">
         <a href="1giorgia.html" class="lesson-card">
@@ -174,6 +199,11 @@
             <h2>Lesson 2 <span>03/11/2026</span></h2>
             <p>Into Focus B1+ practice covering present & past habits, complex verb patterns, semantic changes in verbs, and interactive fable composition.</p>
         </a>
+
+        <a href="3giorgia.html" class="lesson-card">
+            <h2>Lesson 3 <span>for 10/11/2026</span></h2>
+            <p>Adjectives vs. adverbs (well vs. good), advanced quantifiers (much, all, a lot of), and narrative past tenses (had become).</p>
+        </a>
     </div>
 </div>
 
@@ -182,7 +212,7 @@
     <p style="margin-top: 4px;">
         <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
         <a href="mailto:james_wynne@hotmail.com">email</a> | 
-        <a href="https://wa.me/393515316723" target="_blank">whatsapp</a>
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
     </p>
 </footer>
 
@@ -195,6 +225,42 @@
                 .catch(err => console.log('Service Worker registration failed:', err));
         });
     }
+
+    // PWA Installation Prompt Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent default mini-infobar or browser banner
+        e.preventDefault();
+        deferredPrompt = e;
+        // Show our custom install button
+        if (installBtn) {
+            installBtn.style.display = 'inline-block';
+        }
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            // Show the prompt dialog
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`User response to the install prompt: ${outcome}`);
+            deferredPrompt = null;
+            // Hide the button once installation is completed or initiated
+            installBtn.style.display = 'none';
+        });
+    }
+
+    // Hide button if app was successfully installed
+    window.addEventListener('appinstalled', () => {
+        if (installBtn) {
+            installBtn.style.display = 'none';
+        }
+        deferredPrompt = null;
+        console.log('PWA installed successfully');
+    });
 </script>
 
 </body>

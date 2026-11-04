@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f3e8ff">
+    <title>Lesson 3 - Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-blue: #ebf8ff;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 720px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.12);
+            overflow: hidden;
+            margin: auto;
+            text-align: left;
+            padding: 40px 30px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        header p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .section-box {
+            background: linear-gradient(135deg, #faf5ff, #fdf4ff);
+            border: 2px solid #fbcfe8;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 25px;
+        }
+
+        .section-box h2 {
+            font-size: 1.25rem;
+            color: var(--primary-pink);
+            margin-bottom: 12px;
+        }
+
+        .rule-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .rule-text strong {
+            color: var(--text-main);
+        }
+
+        .exercise-item {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .exercise-item select {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: #fff;
+            color: var(--text-main);
+            margin: 0 4px;
+        }
+
+        .btn-check {
+            background: var(--primary-purple);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-check:hover {
+            opacity: 0.9;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 720px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-link">← Back to Portal</a>
+    
+    <header>
+        <h1>Lesson 3 Notes & Practice</h1>
+        <p>Focus: Adjectives vs. Adverbs, Quantifiers & Narrative Tenses</p>
+    </header>
+
+    <!-- SECTION 1: Adjectives vs Adverbs -->
+    <div class="section-box">
+        <h2>1. Adjectives vs. Adverbs (Good vs. Well)</h2>
+        <p class="rule-text">
+            <strong>Adjectives (Good)</strong> describe nouns (people, things, states): <em>She is a <strong>good</strong> singer.</em><br>
+            <strong>Adverbs (Well)</strong> describe verbs (how an action is performed): <em>She sings <strong>well</strong>.</em><br>
+            <em>Note: "Well" can also mean healthy ("I don't feel well today").</em>
+        </p>
+
+        <div class="exercise-item">
+            1. She plays the piano very 
+            <select id="q1">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select>.
+        </div>
+        <div class="exercise-item">
+            2. This is a really 
+            <select id="q2">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select> book.
+        </div>
+        <div class="exercise-item">
+            3. Did you sleep 
+            <select id="q3">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select> last night?
+        </div>
+        <div class="exercise-item">
+            4. Marco speaks English very 
+            <select id="q4">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select>, but his writing needs practice.
+        </div>
+        <div class="exercise-item">
+            5. The presentation went 
+            <select id="q5">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select> and the teacher gave us 
+            <select id="q6">
+                <option value="">--choose--</option>
+                <option value="good">good</option>
+                <option value="well">well</option>
+            </select> feedback.
+        </div>
+        <button class="btn-check" onclick="checkSection1()">Check Section 1</button>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <!-- SECTION 2: Quantifiers -->
+    <div class="section-box">
+        <h2>2. Quantifiers: Much, All of, & A lot of</h2>
+        <p class="rule-text">
+            <strong>Much:</strong> Used primarily with uncountable nouns in negative statements and questions (<em>not much homework</em>).<br>
+            <strong>A lot of:</strong> Used in positive statements for large quantities with both countable and uncountable nouns.<br>
+            <strong>All of:</strong> Refers to 100% of a specified group or set (<em>all of the questions</em>).
+        </p>
+
+        <div class="exercise-item">
+            1. We don't have 
+            <select id="q7">
+                <option value="">--choose--</option>
+                <option value="much">much</option>
+                <option value="a lot of">a lot of</option>
+            </select> time left before the lesson ends.
+        </div>
+        <div class="exercise-item">
+            2. She spent 
+            <select id="q8">
+                <option value="">--choose--</option>
+                <option value="much">much</option>
+                <option value="a lot of">a lot of</option>
+            </select> hours studying for the exam.
+        </div>
+        <div class="exercise-item">
+            3. 
+            <select id="q9">
+                <option value="">--choose--</option>
+                <option value="All of">All of</option>
+                <option value="Much">Much</option>
+            </select> the students understood the new grammar point.
+        </div>
+        <div class="exercise-item">
+            4. There wasn't 
+            <select id="q10">
+                <option value="">--choose--</option>
+                <option value="much">much</option>
+                <option value="all of">all of</option>
+            </select> interest in the topic at first.
+        </div>
+        <div class="exercise-item">
+            5. They ate 
+            <select id="q11">
+                <option value="">--choose--</option>
+                <option value="a lot of">a lot of</option>
+                <option value="much">much</option>
+            </select> pizza at the party yesterday.
+        </div>
+        <div class="exercise-item">
+            6. I've finished 
+            <select id="q12">
+                <option value="">--choose--</option>
+                <option value="all of">all of</option>
+                <option value="much">much</option>
+            </select> my homework for tomorrow.
+        </div>
+        <button class="btn-check" onclick="checkSection2()">Check Section 2</button>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <!-- SECTION 3: Verb Tenses -->
+    <div class="section-box">
+        <h2>3. Past Tenses & Narrative Context ("Had Become")</h2>
+        <p class="rule-text">
+            We use the <strong>Past Perfect (had + past participle)</strong> to describe an action completed <em>before</em> another action or point in the past.<br>
+            <em>Example: By 2024, it <strong>had become</strong> clear that learning English was essential.</em>
+        </p>
+
+        <div class="exercise-item">
+            1. When I met him last year, he 
+            <select id="q13">
+                <option value="">--choose--</option>
+                <option value="had become">had become</option>
+                <option value="has become">has become</option>
+            </select> a professional developer.
+        </div>
+        <div class="exercise-item">
+            2. By the time the lesson started, it 
+            <select id="q14">
+                <option value="">--choose--</option>
+                <option value="had become">had become</option>
+                <option value="became">became</option>
+            </select> very dark outside.
+        </div>
+        <div class="exercise-item">
+            3. She realized that her English 
+            <select id="q15">
+                <option value="">--choose--</option>
+                <option value="had improved">had improved</option>
+                <option value="improves">improves</option>
+            </select> significantly over the month.
+        </div>
+        <div class="exercise-item">
+            4. Before we moved to Milan, English 
+            <select id="q16">
+                <option value="">--choose--</option>
+                <option value="had become">had become</option>
+                <option value="becomes">becomes</option>
+            </select> her favorite subject.
+        </div>
+        <div class="exercise-item">
+            5. They were tired because they 
+            <select id="q17">
+                <option value="">--choose--</option>
+                <option value="had studied">had studied</option>
+                <option value="have studied">have studied</option>
+            </select> all afternoon.
+        </div>
+        <button class="btn-check" onclick="checkSection3()">Check Section 3</button>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
+</footer>
+
+<script>
+    function checkSection1() {
+        const answers = {
+            q1: 'well',
+            q2: 'good',
+            q3: 'well',
+            q4: 'well',
+            q5: 'well',
+            q6: 'good'
+        };
+
+        let correct = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            if (document.getElementById(key).value === answers[key]) {
+                correct++;
+            }
+        }
+
+        const fb = document.getElementById('feedback1');
+        if (correct === total) {
+            fb.style.color = '#059669';
+            fb.textContent = `✨ Perfect! ${correct}/${total} correct. Great job distinguishing adjectives and adverbs!`;
+        } else {
+            fb.style.color = '#dc2626';
+            fb.textContent = `💡 You got ${correct}/${total} correct. Remember: use "well" for actions (play well, sleep well, went well) and "good" for nouns (good book, good feedback).`;
+        }
+    }
+
+    function checkSection2() {
+        const answers = {
+            q7: 'much',
+            q8: 'a lot of',
+            q9: 'All of',
+            q10: 'much',
+            q11: 'a lot of',
+            q12: 'all of'
+        };
+
+        let correct = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            if (document.getElementById(key).value === answers[key]) {
+                correct++;
+            }
+        }
+
+        const fb = document.getElementById('feedback2');
+        if (correct === total) {
+            fb.style.color = '#059669';
+            fb.textContent = `✨ Excellent! ${correct}/${total} correct. You have mastered these quantifiers!`;
+        } else {
+            fb.style.color = '#dc2626';
+            fb.textContent = `💡 You got ${correct}/${total} correct. Keep in mind: "much" for negatives/questions with uncountable nouns, "a lot of" for large amounts, and "all of" for complete totals.`;
+        }
+    }
+
+    function checkSection3() {
+        const answers = {
+            q13: 'had become',
+            q14: 'had become',
+            q15: 'had improved',
+            q16: 'had become',
+            q17: 'had studied'
+        };
+
+        let correct = 0;
+        let total = Object.keys(answers).length;
+
+        for (let key in answers) {
+            if (document.getElementById(key).value === answers[key]) {
+                correct++;
+            }
+        }
+
+        const fb = document.getElementById('feedback3');
+        if (correct === total) {
+            fb.style.color = '#059669';
+            fb.textContent = `✨ Brilliant! ${correct}/${total} correct. Perfect understanding of narrative past tenses!`;
+        } else {
+            fb.style.color = '#dc2626';
+            fb.textContent = `💡 You got ${correct}/${total} correct. Hint: Use the past perfect ("had + past participle") for actions completed before another past event.`;
+        }
+    }
+</script>
+
+</body>
+</html>
