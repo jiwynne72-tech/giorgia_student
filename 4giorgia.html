@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ccfbf1">
+    <title>Lesson 4: Summary | Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-mint: #f0fdfa;
+            --bg-pastel-cyan: #ecfeff;
+            --bg-pastel-blue: #e0f2fe;
+            --primary-teal: #0d9488;
+            --primary-cyan: #0891b2;
+            --accent-emerald: #10b981;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --correct-bg: #d1fae5;
+            --correct-border: #10b981;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-mint) 0%, var(--bg-pastel-cyan) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(13, 148, 136, 0.12);
+            overflow: hidden;
+            margin: auto;
+            padding: 35px 30px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #f0fdfa;
+            border-radius: 12px;
+            border: 1px solid #99f6e4;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            background: #ccfbf1;
+            transform: translateX(-2px);
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-cyan));
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(13, 148, 136, 0.2);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar-container {
+            margin-bottom: 14px;
+        }
+
+        .avatar-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(13, 148, 136, 0.2);
+            border: 3px solid #fff;
+        }
+
+        .header-section h1 {
+            font-size: 1.9rem;
+            color: var(--primary-teal);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .header-section p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .exercise-section {
+            background: #f8fafc;
+            border: 2px solid #ccfbf1;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 24px;
+        }
+
+        .exercise-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-teal);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .question-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .question-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .question-item.correct {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+
+        .question-item.wrong {
+            background: var(--wrong-bg);
+            border-color: var(--wrong-border);
+        }
+
+        .question-text {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        select, input[type="text"] {
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 7px 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        select:focus, input[type="text"]:focus, textarea:focus {
+            border-color: var(--primary-teal);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .feedback-msg {
+            font-size: 0.85rem;
+            margin-top: 8px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .feedback-msg.show {
+            display: block;
+        }
+
+        .feedback-msg.ok {
+            color: #065f46;
+        }
+
+        .feedback-msg.err {
+            color: #991b1b;
+        }
+
+        .reveal-btn {
+            background: #ecfeff;
+            color: var(--primary-cyan);
+            border: 1px solid #a5f3fc;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            font-family: inherit;
+        }
+
+        .reveal-btn:hover {
+            background: #cffafe;
+        }
+
+        .model-answer {
+            display: none;
+            margin-top: 8px;
+            padding: 10px;
+            background: #f0fdfa;
+            border-left: 3px solid var(--primary-teal);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #115e59;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 110px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            resize: vertical;
+            margin-top: 8px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-top: 10px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .checklist li {
+            background: #e6fffa;
+            color: #0f766e;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+
+        .action-bar {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-teal), var(--primary-cyan));
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 148, 136, 0.35);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--text-muted);
+            border: 1.5px solid #cbd5e1;
+            border-radius: 25px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 750px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-nav">
+        <a href="giorgia_index.html" class="back-link">← Back to Portal</a>
+        <div class="score-badge" id="scoreDisplay">Score: 0 / 12</div>
+    </div>
+
+    <div class="header-section">
+        <div class="avatar-container">
+            <img src="giorgia.png" alt="Giorgia Icon">
+        </div>
+        <h1>Lesson 4: Summary Review ✨</h1>
+        <p>Consolidate everything from Lessons 1, 2, and 3 in one place.</p>
+    </div>
+
+    <!-- PART 1: LESSON 1 REVIEW -->
+    <div class="exercise-section">
+        <h2>📘 Part 1: Lesson 1 Review</h2>
+        <p class="section-subtitle">Reported speech, 'get', countable/uncountable nouns, modals, and -ed / -ing adjectives.</p>
+
+        <div class="question-item" data-answer="had been">
+            <div class="question-text">
+                1. "I am really tired today," Marco said. → Marco said that he 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="is">is</option>
+                    <option value="was">was</option>
+                    <option value="had been">had been</option>
+                </select>
+                really tired that day. <em>(Note: If reporting from a past moment, 'was' is standard; select 'was' or 'had been'—let's use 'was' for simple present-to-past!)</em>
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="was">
+            <div class="question-text">
+                1b. Let's try that cleanly: "I love this book," Sofia said. → Sofia said she 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="loves">loves</option>
+                    <option value="loved">loved</option>
+                    <option value="had loved">had loved</option>
+                </select>
+                that book.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="got">
+            <div class="question-text">
+                2. It was raining heavily, so we 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="got">got</option>
+                    <option value="did">did</option>
+                    <option value="made">made</option>
+                </select>
+                completely soaked on the way home.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="advice">
+            <div class="question-text">
+                3. My teacher gave me some very useful 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="advices">advices</option>
+                    <option value="advice">advice</option>
+                    <option value="an advice">an advice</option>
+                </select>
+                before the exam.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="mustn't">
+            <div class="question-text">
+                4. You 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="mustn't">mustn't</option>
+                    <option value="don't have to">don't have to</option>
+                    <option value="shouldn't have">shouldn't have</option>
+                </select>
+                use your phone during the test—it's strictly forbidden!
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="fascinating">
+            <div class="question-text">
+                5. The documentary about space travel was absolutely 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="fascinated">fascinated</option>
+                    <option value="fascinating">fascinating</option>
+                </select>.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- PART 2: LESSON 2 REVIEW -->
+    <div class="exercise-section">
+        <h2>📗 Part 2: Lesson 2 Review</h2>
+        <p class="section-subtitle">Present & past habits, complex verb patterns, and semantic changes in verbs.</p>
+
+        <div class="question-item" data-answer="used to">
+            <div class="question-text">
+                6. When I was younger, I 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="use to">use to</option>
+                    <option value="used to">used to</option>
+                    <option value="am used to">am used to</option>
+                </select>
+                play the piano every afternoon.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="to lock">
+            <div class="question-text">
+                7. Remember 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="locking">locking</option>
+                    <option value="to lock">to lock</option>
+                </select>
+                the front door before you leave! <em>(Don't forget to do it)</em>
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="working">
+            <div class="question-text">
+                8. She stopped 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="working">working</option>
+                    <option value="to work">to work</option>
+                </select>
+                at 6 PM because she had finished all her tasks.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- PART 3: LESSON 3 REVIEW -->
+    <div class="exercise-section">
+        <h2>📙 Part 3: Lesson 3 Review</h2>
+        <p class="section-subtitle">Adjectives vs. adverbs (well vs. good), advanced quantifiers, and narrative past tenses.</p>
+
+        <div class="question-item" data-answer="well">
+            <div class="question-text">
+                9. Giorgia speaks English very 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="good">good</option>
+                    <option value="well">well</option>
+                </select>
+                because she practises regularly.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="much">
+            <div class="question-text">
+                10. We don't have 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="much">much</option>
+                    <option value="many">many</option>
+                    <option value="all">all</option>
+                </select>
+                time left before the train departs.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="a lot of">
+            <div class="question-text">
+                11. There were 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="much">much</option>
+                    <option value="a lot of">a lot of</option>
+                </select>
+                students at the summer concert.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+
+        <div class="question-item" data-answer="had become">
+            <div class="question-text">
+                12. By the time the sun set, the quiet village 
+                <select class="quiz-select">
+                    <option value="">-- choose --</option>
+                    <option value="became">became</option>
+                    <option value="had become">had become</option>
+                </select>
+                completely silent.
+            </div>
+            <div class="feedback-msg"></div>
+        </div>
+    </div>
+
+    <!-- PART 4: SENTENCE TRANSFORMATION -->
+    <div class="exercise-section">
+        <h2>✍️ Part 4: Sentence Transformation</h2>
+        <p class="section-subtitle">Rewrite the sentences using what you learned, then click "Show Model Answer" to check.</p>
+
+        <div class="question-item">
+            <div class="question-text">
+                A. "I will call you tomorrow," Luca told me. <em>(Reported speech)</em>
+                <input type="text" placeholder="Luca told me that...">
+            </div>
+            <button type="button" class="reveal-btn" onclick="toggleModel(this)">Show Model Answer</button>
+            <div class="model-answer">Luca told me that he would call me the next day / the following day.</div>
+        </div>
+
+        <div class="question-item">
+            <div class="question-text">
+                B. First, I finished my homework. Then, I watched a film. <em>(Use Past Perfect: 'had...')</em>
+                <input type="text" placeholder="By the time I watched a film, I...">
+            </div>
+            <button type="button" class="reveal-btn" onclick="toggleModel(this)">Show Model Answer</button>
+            <div class="model-answer">By the time I watched a film, I had finished my homework.</div>
+        </div>
+    </div>
+
+    <!-- PART 5: MINI FABLE BUILDER -->
+    <div class="exercise-section">
+        <h2>🦊 Part 5: Mini Fable Challenge</h2>
+        <p class="section-subtitle">Write a short 3–4 sentence fable about a clever animal. Try to include at least 3 of the elements below:</p>
+        <ul class="checklist">
+            <li>✓ Past habit (used to / would)</li>
+            <li>✓ Past Perfect (had + past participle)</li>
+            <li>✓ An adverb (well / quickly / carefully)</li>
+            <li>✓ A 'get' expression</li>
+        </ul>
+        <textarea placeholder="Once upon a time, a little fox used to..."></textarea>
+    </div>
+
+    <div class="action-bar">
+        <button type="button" class="btn-primary" onclick="checkAll()">Check All Answers</button>
+        <button type="button" class="btn-secondary" onclick="resetQuiz()">Reset</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
+</footer>
+
+<script>
+    // Fix for question 1b answer attribute
+    document.querySelectorAll('.question-item')[1].setAttribute('data-answer', 'loved');
+    // Remove duplicate 1a if needed—let's keep 12 scored items cleanly:
+    // Actually, let's remove the first placeholder item (1a) so there are exactly 12 clean scored questions.
+    const firstItem = document.querySelectorAll('.question-item')[0];
+    if (firstItem && firstItem.querySelector('.question-text').innerText.includes('Note:')) {
+        firstItem.remove();
+    }
+
+    function checkAll() {
+        const items = document.querySelectorAll('.question-item[data-answer]');
+        let score = 0;
+
+        items.forEach(item => {
+            const correct = item.getAttribute('data-answer');
+            const select = item.querySelector('.quiz-select');
+            const feedback = item.querySelector('.feedback-msg');
+            const val = select.value;
+
+            item.classList.remove('correct', 'wrong');
+            feedback.classList.remove('show', 'ok', 'err');
+
+            if (val === correct) {
+                score++;
+                item.classList.add('correct');
+                feedback.textContent = '✓ Correct!';
+                feedback.classList.add('show', 'ok');
+            } else {
+                item.classList.add('wrong');
+                feedback.textContent = val === '' ? 'Please select an answer.' : `✗ Not quite. Correct answer: "${correct}"`;
+                feedback.classList.add('show', 'err');
+            }
+        });
+
+        document.getElementById('scoreDisplay').textContent = `Score: ${score} / ${items.length}`;
+    }
+
+    function resetQuiz() {
+        const items = document.querySelectorAll('.question-item[data-answer]');
+        items.forEach(item => {
+            item.classList.remove('correct', 'wrong');
+            const select = item.querySelector('.quiz-select');
+            if (select) select.value = '';
+            const feedback = item.querySelector('.feedback-msg');
+            if (feedback) {
+                feedback.textContent = '';
+                feedback.classList.remove('show', 'ok', 'err');
+            }
+        });
+        document.getElementById('scoreDisplay').textContent = `Score: 0 / ${items.length}`;
+    }
+
+    function toggleModel(btn) {
+        const answer = btn.nextElementSibling;
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            btn.textContent = 'Show Model Answer';
+        } else {
+            answer.style.display = 'block';
+            btn.textContent = 'Hide Model Answer';
+        }
+    }
+</script>
+
+</body>
+</html>
