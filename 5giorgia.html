@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5 - Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-blue: #ebf8ff;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --success-bg: #dcfce7;
+            --success-text: #166534;
+            --error-bg: #fee2e2;
+            --error-text: #991b1b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 820px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.12);
+            padding: 36px 32px;
+            margin-bottom: 24px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--primary-purple);
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: #f3e8ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: #e9d5ff;
+            transform: translateX(-2px);
+        }
+
+        .date-badge {
+            background: #fce7f3;
+            color: #be185d;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .section-card {
+            background: #faf5ff;
+            border: 2px solid #f3e8ff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 26px;
+        }
+
+        .section-card.pink-accent {
+            background: #fff5f8;
+            border-color: #fbcfe8;
+        }
+
+        .section-card h2 {
+            font-size: 1.35rem;
+            color: var(--primary-pink);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-card h3 {
+            font-size: 1.05rem;
+            color: var(--primary-purple);
+            margin: 16px 0 8px;
+        }
+
+        .rule-box {
+            background: #ffffff;
+            border-left: 4px solid var(--primary-purple);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            font-size: 0.94rem;
+            line-height: 1.6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .rule-box ul {
+            margin-left: 20px;
+            margin-top: 6px;
+        }
+
+        .rule-box li {
+            margin-bottom: 6px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .vocab-item {
+            background: #ffffff;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid #e9d5ff;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .vocab-item strong {
+            color: var(--primary-purple);
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.98rem;
+        }
+
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .question-row {
+            background: #ffffff;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .question-text {
+            flex: 1 1 380px;
+        }
+
+        select {
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 10px;
+            border: 2px solid #cbd5e1;
+            background: #f8fafc;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        select.correct {
+            border-color: #22c55e;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+        }
+
+        select.incorrect {
+            border-color: #ef4444;
+            background-color: var(--error-bg);
+            color: var(--error-text);
+        }
+
+        .btn-group {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .check-btn {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: #ffffff;
+            border: none;
+            border-radius: 22px;
+            padding: 10px 22px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .reset-btn {
+            background: #e2e8f0;
+            color: var(--text-main);
+            border: none;
+            border-radius: 22px;
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            background: #cbd5e1;
+        }
+
+        .feedback-msg {
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .reading-passage {
+            background: #ffffff;
+            padding: 20px 22px;
+            border-radius: 14px;
+            border: 1px solid #fbcfe8;
+            line-height: 1.75;
+            font-size: 0.97rem;
+            color: var(--text-main);
+            margin-bottom: 18px;
+        }
+
+        .reading-passage p {
+            margin-bottom: 12px;
+        }
+
+        .reading-passage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            margin-top: 12px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 820px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-nav">
+        <a href="index.html" class="back-btn">← Back to Portal</a>
+        <span class="date-badge">Lesson: 14/11/2026</span>
+    </div>
+
+    <header>
+        <h1>Lesson 5: Grammar, Vocabulary & Art 🎨</h1>
+        <p>Notes from our session plus interactive practice on adjectives, movement verbs, quantifiers, and Renaissance art.</p>
+    </header>
+
+    <!-- 0. Lesson Vocabulary & Notes -->
+    <section class="section-card pink-accent">
+        <h2>📝 Quick Notes from Our Previous Lesson</h2>
+        <div class="vocab-grid">
+            <div class="vocab-item">
+                <strong>Survive (verb)</strong>
+                To continue to live or exist, especially after a difficult or dangerous situation (e.g., <em>"Not many characters survive every season of Grey's Anatomy!"</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Fast vs. Quickly</strong>
+                <strong>Fast</strong> is both an adjective and an adverb (<em>a fast car / drive fast</em>). Never say <em>"fastly"</em>. <strong>Quickly</strong> is an adverb (<em>finish quickly</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Lying on the couch</strong>
+                Use <strong>lie / lying</strong> (not <em>laying</em>) when resting horizontally without an object (<em>"She was lying on the couch watching TV."</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>The Louvre & Portrait Artist</strong>
+                Remember: in English it is <strong>the Louvre</strong> (masculine/neutral <em>the</em>, not <em>la</em>). A <strong>portrait artist</strong> paints portraits of people.
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. -ed vs -ing Adjectives -->
+    <section class="section-card">
+        <h2>1. Interesting vs. Interested / Fascinating vs. Fascinated</h2>
+        <div class="rule-box">
+            <strong>The Golden Rule for Participle Adjectives:</strong>
+            <ul>
+                <li><strong>-ING adjectives</strong> (<em>interesting, fascinating, boring, tiring, exciting</em>) describe the <strong>cause</strong> — the person, thing, or situation that produces the feeling.<br>
+                <em>Example:</em> "Masaccio's frescoes are <strong>fascinating</strong>." (The frescoes cause the feeling).</li>
+                <li><strong>-ED adjectives</strong> (<em>interested, fascinated, bored, tired, excited</em>) describe the <strong>feeling or emotion</strong> a person experiences.<br>
+                <em>Example:</em> "Giorgia is <strong>fascinated</strong> by Renaissance art." (Giorgia feels the emotion).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-ed-ing">
+            <div class="question-row">
+                <span class="question-text">1. We watched an episode of <em>Grey's Anatomy</em> last night, and the medical case was really _______.</span>
+                <select data-answer="interesting">
+                    <option value="">Choose...</option>
+                    <option value="interesting">interesting</option>
+                    <option value="interested">interested</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. I have always been _______ in how Renaissance artists discovered linear perspective.</span>
+                <select data-answer="interested">
+                    <option value="">Choose...</option>
+                    <option value="interesting">interesting</option>
+                    <option value="interested">interested</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. The tour guide at the Louvre told us a _______ story about a portrait artist.</span>
+                <select data-answer="fascinating">
+                    <option value="">Choose...</option>
+                    <option value="fascinating">fascinating</option>
+                    <option value="fascinated">fascinated</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. The students stood in front of the Brancacci Chapel, completely _______ by the colors.</span>
+                <select data-answer="fascinated">
+                    <option value="">Choose...</option>
+                    <option value="fascinating">fascinating</option>
+                    <option value="fascinated">fascinated</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. Walking around a huge museum for four hours can be very _______.</span>
+                <select data-answer="tiring">
+                    <option value="">Choose...</option>
+                    <option value="tiring">tiring</option>
+                    <option value="tired">tired</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="check-btn" onclick="checkSection('quiz-ed-ing', 'fb-ed-ing')">Check Answers</button>
+            <button class="reset-btn" onclick="resetSection('quiz-ed-ing', 'fb-ed-ing')">Reset</button>
+            <span class="feedback-msg" id="fb-ed-ing"></span>
+        </div>
+    </section>
+
+    <!-- 2. Bring vs. Take -->
+    <section class="section-card pink-accent">
+        <h2>2. Bring vs. Take (Direction of Movement)</h2>
+        <div class="rule-box">
+            <strong>Think about the listener's or speaker's location:</strong>
+            <ul>
+                <li><strong>BRING</strong> = movement <strong>towards</strong> the speaker or listener (<em>here</em> / where we are or will be).<br>
+                <em>Example:</em> "Can you <strong>bring</strong> your English notebook to our next lesson?" (towards the teacher/class).</li>
+                <li><strong>TAKE</strong> = movement <strong>away</strong> from the speaker or listener (<em>there</em> / to another place).<br>
+                <em>Example:</em> "Don't forget to <strong>take</strong> an umbrella when you leave the house." (away from here).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-bring-take">
+            <div class="question-row">
+                <span class="question-text">1. When you come to my house later, please _______ your sketchbook so I can see your drawings.</span>
+                <select data-answer="bring">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. We are going to Florence tomorrow, and I'm going to _______ my camera to photograph the churches.</span>
+                <select data-answer="take">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Could you _______ me a glass of water while I'm lying here on the couch?</span>
+                <select data-answer="bring">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. After class, remember to _______ your jacket with you—it's cold outside!</span>
+                <select data-answer="take">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. My friend went to Paris and promised to _______ me back a postcard from the Louvre.</span>
+                <select data-answer="bring">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="check-btn" onclick="checkSection('quiz-bring-take', 'fb-bring-take')">Check Answers</button>
+            <button class="reset-btn" onclick="resetSection('quiz-bring-take', 'fb-bring-take')">Reset</button>
+            <span class="feedback-msg" id="fb-bring-take"></span>
+        </div>
+    </section>
+
+    <!-- 3. Quantifiers -->
+    <section class="section-card">
+        <h2>3. Quantifiers: Too, So Much, A Lot, Enough & Many</h2>
+        <div class="rule-box">
+            <strong>Key Rules to Remember:</strong>
+            <ul>
+                <li><strong>TOO / TOO MUCH / TOO MANY</strong> = <em>more than necessary or wanted</em> (usually a negative problem).<br>
+                Use <strong>too + adjective</strong> (<em>too fast</em>), <strong>too much + uncountable noun</strong> (<em>too much homework</em>), <strong>too many + countable plural noun</strong> (<em>too many tourists</em>).</li>
+                <li><strong>SO / SO MUCH / SO MANY</strong> = <em>a very high degree</em> (used for strong emphasis, often positive or dramatic).<br>
+                Use <strong>so + adjective</strong> (<em>so good</em>), <strong>so much + uncountable noun/verb</strong> (<em>I love art so much</em>), <strong>so many + countable plural noun</strong> (<em>so many paintings</em>).</li>
+                <li><strong>A LOT (OF) / LOTS OF</strong> = a large quantity (works in positive sentences with both countable & uncountable nouns). Use <strong>a lot</strong> at the end of a sentence without a noun (<em>"She studies a lot"</em>).</li>
+                <li><strong>ENOUGH</strong> = the right amount. Goes <strong>before</strong> nouns (<em>enough time</em>) and <strong>after</strong> adjectives (<em>fast enough</em>).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-quantifiers">
+            <div class="question-row">
+                <span class="question-text">1. There were _______ tourists in front of the Mona Lisa that we couldn't even see it!</span>
+                <select data-answer="so many">
+                    <option value="">Choose...</option>
+                    <option value="so many">so many</option>
+                    <option value="so much">so much</option>
+                    <option value="too much">too much</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. Don't speak _______ quickly, please—I'm trying to write everything down in my notes.</span>
+                <select data-answer="too">
+                    <option value="">Choose...</option>
+                    <option value="too">too</option>
+                    <option value="too much">too much</option>
+                    <option value="enough">enough</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Thank you _______ for helping me understand the difference between <em>bring</em> and <em>take</em>!</span>
+                <select data-answer="so much">
+                    <option value="">Choose...</option>
+                    <option value="so much">so much</option>
+                    <option value="too much">too much</option>
+                    <option value="many">many</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. We didn't have _______ time to visit the entire museum in a single afternoon.</span>
+                <select data-answer="enough">
+                    <option value="">Choose...</option>
+                    <option value="enough">enough</option>
+                    <option value="too">too</option>
+                    <option value="a lot">a lot</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. If you drink _______ coffee late at night, you won't be able to sleep.</span>
+                <select data-answer="too much">
+                    <option value="">Choose...</option>
+                    <option value="too much">too much</option>
+                    <option value="too many">too many</option>
+                    <option value="a lot">a lot</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">6. Masaccio accomplished _______ in his short life, dying at just twenty-six years old.</span>
+                <select data-answer="a lot">
+                    <option value="">Choose...</option>
+                    <option value="a lot">a lot</option>
+                    <option value="a lot of">a lot of</option>
+                    <option value="too">too</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="check-btn" onclick="checkSection('quiz-quantifiers', 'fb-quantifiers')">Check Answers</button>
+            <button class="reset-btn" onclick="resetSection('quiz-quantifiers', 'fb-quantifiers')">Reset</button>
+            <span class="feedback-msg" id="fb-quantifiers"></span>
+        </div>
+    </section>
+
+    <!-- 4. Reading Paragraph about Masaccio -->
+    <section class="section-card pink-accent">
+        <h2>4. Reading: Masaccio and the Birth of Renaissance Perspective</h2>
+        <div class="reading-passage">
+            <p><strong>Tommaso di Ser Giovanni di Mòne</strong> (1401–1428), famously known as <strong>Masaccio</strong>, was one of the most revolutionary painters of the early Italian Renaissance. Although his life was tragically short, he transformed Western art by moving away from the flat, decorative Gothic style and introducing realistic human emotion, natural lighting, and mathematical linear perspective.</p>
+            <p>His greatest masterpiece can be found in the <strong>Brancacci Chapel</strong> in Florence, where he painted a series of frescoes depicting scenes from the life of <strong>Saint Peter</strong>—most notably <em>The Tribute Money</em>, <em>Saint Peter Healing the Sick with His Shadow</em>, and <em>The Distribution of Alms and Death of Ananias</em>. In these three scenes, Masaccio gave his figures real physical weight and placed them in believable architectural spaces, inspiring generations of artists including Michelangelo and Raphael.</p>
+        </div>
+
+        <h3>Reading Comprehension Check</h3>
+        <div class="question-list" id="quiz-reading">
+            <div class="question-row">
+                <span class="question-text">1. What was Masaccio's full birth name?</span>
+                <select data-answer="Tommaso di Ser Giovanni di Mone">
+                    <option value="">Choose...</option>
+                    <option value="Tommaso di Ser Giovanni di Mone">Tommaso di Ser Giovanni di Mòne</option>
+                    <option value="Michelangelo Buonarroti">Michelangelo Buonarroti</option>
+                    <option value="Giovanni di Bicci">Giovanni di Bicci</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. How did Masaccio change painting compared to the earlier Gothic style?</span>
+                <select data-answer="perspective">
+                    <option value="">Choose...</option>
+                    <option value="perspective">He used natural light, emotion, and linear perspective</option>
+                    <option value="gold">He used flat gold backgrounds and decorative patterns</option>
+                    <option value="abstract">He avoided painting human figures</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Which biblical figure appears in the three famous Brancacci Chapel scenes mentioned?</span>
+                <select data-answer="Saint Peter">
+                    <option value="">Choose...</option>
+                    <option value="Saint Peter">Saint Peter</option>
+                    <option value="Saint Francis">Saint Francis</option>
+                    <option value="Saint John">Saint John</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="check-btn" onclick="checkSection('quiz-reading', 'fb-reading')">Check Answers</button>
+            <button class="reset-btn" onclick="resetSection('quiz-reading', 'fb-reading')">Reset</button>
+            <span class="feedback-msg" id="fb-reading"></span>
+        </div>
+    </section>
+
+    <!-- 5. Video Lesson -->
+    <section class="section-card">
+        <h2>5. Video Study: Masaccio & Art History</h2>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px;">
+            Watch the video below and pay attention to how the speaker describes the composition, light, and storytelling in the artwork.
+        </p>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/1GcDWbhf640" 
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
+</footer>
+
+<script>
+    function checkSection(containerId, feedbackId) {
+        const container = document.getElementById(containerId);
+        const selects = container.querySelectorAll('select');
+        let correctCount = 0;
+        let total = selects.length;
+
+        selects.forEach(select => {
+            const userVal = select.value;
+            const correctVal = select.getAttribute('data-answer');
+            select.classList.remove('correct', 'incorrect');
+
+            if (userVal === correctVal) {
+                select.classList.add('correct');
+                correctCount++;
+            } else {
+                select.classList.add('incorrect');
+            }
+        });
+
+        const fb = document.getElementById(feedbackId);
+        if (correctCount === total) {
+            fb.style.color = '#166534';
+            fb.textContent = `🎉 Perfect! ${correctCount}/${total} correct!`;
+        } else {
+            fb.style.color = '#be185d';
+            fb.textContent = `You got ${correctCount}/${total}. Check the red boxes and try again!`;
+        }
+    }
+
+    function resetSection(containerId, feedbackId) {
+        const container = document.getElementById(containerId);
+        const selects = container.querySelectorAll('select');
+        selects.forEach(select => {
+            select.value = '';
+            select.classList.remove('correct', 'incorrect');
+        });
+        document.getElementById(feedbackId).textContent = '';
+    }
+</script>
+
+</body>
+</html>
