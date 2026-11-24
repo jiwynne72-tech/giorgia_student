@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f3e8ff">
+    <title>Lesson 6: Comprehensive Master Recap | Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-blue: #ebf8ff;
+            --bg-pastel-mint: #f0fdfa;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --primary-teal: #0d9488;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --correct-bg: #dcfce7;
+            --correct-border: #22c55e;
+            --correct-text: #166534;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #ef4444;
+            --wrong-text: #991b1b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 840px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.12);
+            padding: 36px 32px;
+            margin-bottom: 24px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--primary-purple);
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: #f3e8ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: #e9d5ff;
+            transform: translateX(-2px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .date-badge {
+            background: #fce7f3;
+            color: #be185d;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .score-badge {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: #ffffff;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.22);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .avatar-container {
+            margin-bottom: 14px;
+        }
+
+        .avatar-container img {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.22);
+            border: 3px solid #fff;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 620px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .section-card {
+            background: #faf5ff;
+            border: 2px solid #f3e8ff;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 26px;
+        }
+
+        .section-card.pink-accent {
+            background: #fff5f8;
+            border-color: #fbcfe8;
+        }
+
+        .section-card.mint-accent {
+            background: #f0fdfa;
+            border-color: #ccfbf1;
+        }
+
+        .section-card h2 {
+            font-size: 1.3rem;
+            color: var(--primary-pink);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-card.mint-accent h2 {
+            color: var(--primary-teal);
+        }
+
+        .section-card h3 {
+            font-size: 1.05rem;
+            color: var(--primary-purple);
+            margin: 18px 0 10px;
+        }
+
+        .rule-box {
+            background: #ffffff;
+            border-left: 4px solid var(--primary-purple);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 18px;
+            font-size: 0.94rem;
+            line-height: 1.6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .section-card.pink-accent .rule-box {
+            border-left-color: var(--primary-pink);
+        }
+
+        .section-card.mint-accent .rule-box {
+            border-left-color: var(--primary-teal);
+        }
+
+        .rule-box ul {
+            margin-left: 20px;
+            margin-top: 6px;
+        }
+
+        .rule-box li {
+            margin-bottom: 6px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .vocab-item {
+            background: #ffffff;
+            padding: 13px 15px;
+            border-radius: 12px;
+            border: 1px solid #fbcfe8;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .vocab-item strong {
+            color: var(--primary-pink);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.98rem;
+        }
+
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .question-row {
+            background: #ffffff;
+            padding: 13px 16px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            transition: all 0.2s ease;
+        }
+
+        .question-row.correct-row {
+            background: var(--correct-bg);
+            border-color: var(--correct-border);
+        }
+
+        .question-row.incorrect-row {
+            background: var(--wrong-bg);
+            border-color: var(--wrong-border);
+        }
+
+        .question-text {
+            flex: 1 1 400px;
+        }
+
+        select {
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 10px;
+            border: 2px solid #cbd5e1;
+            background: #f8fafc;
+            color: var(--text-main);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+        }
+
+        select.correct {
+            border-color: var(--correct-border);
+            background-color: var(--correct-bg);
+            color: var(--correct-text);
+        }
+
+        select.incorrect {
+            border-color: var(--wrong-border);
+            background-color: var(--wrong-bg);
+            color: var(--wrong-text);
+        }
+
+        .transform-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        .transform-card p {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            font-family: inherit;
+            font-size: 0.95rem;
+            padding: 10px 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            background: #ffffff;
+            color: var(--text-main);
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: var(--primary-purple);
+        }
+
+        textarea {
+            min-height: 105px;
+            resize: vertical;
+            margin-top: 8px;
+        }
+
+        .reveal-btn {
+            background: #f3e8ff;
+            color: var(--primary-purple);
+            border: 1px solid #d8b4fe;
+            padding: 6px 13px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 8px;
+            font-family: inherit;
+            transition: background 0.2s;
+        }
+
+        .reveal-btn:hover {
+            background: #e9d5ff;
+        }
+
+        .model-answer {
+            display: none;
+            margin-top: 8px;
+            padding: 10px 12px;
+            background: #faf5ff;
+            border-left: 3px solid var(--primary-purple);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #5b21b6;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-top: 10px;
+            margin-bottom: 6px;
+            font-size: 0.86rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .checklist li {
+            background: #fce7f3;
+            color: #be185d;
+            padding: 5px 11px;
+            border-radius: 15px;
+            font-weight: 600;
+        }
+
+        .btn-group {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .check-btn {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: #ffffff;
+            border: none;
+            border-radius: 22px;
+            padding: 10px 22px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+            transition: transform 0.2s ease;
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .reset-btn {
+            background: #e2e8f0;
+            color: var(--text-main);
+            border: none;
+            border-radius: 22px;
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover {
+            background: #cbd5e1;
+        }
+
+        .feedback-msg {
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .synopsis-box {
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            border-left: 5px solid var(--primary-teal);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--text-main);
+        }
+
+        .synopsis-box h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--primary-teal);
+            font-size: 1.05rem;
+        }
+
+        .synopsis-box p {
+            margin-bottom: 10px;
+        }
+
+        .synopsis-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-top: 12px;
+            margin-bottom: 18px;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .global-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 840px;
+            border-radius: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-nav">
+        <a href="index.html" class="back-btn">← Back to Portal</a>
+        <div class="nav-right">
+            <span class="date-badge">Lesson 6 • Master Recap</span>
+            <div class="score-badge" id="globalScore">Total Score: 0 / 26</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="avatar-container">
+            <img src="icon-giorgia.svg" onerror="this.onerror=null; this.src='giorgia.png';" alt="Giorgia Icon">
+        </div>
+        <h1>Lesson 6: Extensive Course Recap &amp; Video Lab 🩺🎨</h1>
+        <p>A complete review of everything we have covered across Lessons 1–5: grammar, vocabulary, movement verbs, quantifiers, narrative tenses, and a medical drama listening challenge.</p>
+    </header>
+
+    <!-- SECTION 1: VOCABULARY & ESSENTIAL EXPRESSIONS RECAP -->
+    <section class="section-card pink-accent">
+        <h2>1. Core Vocabulary &amp; Common Pitfalls (Lessons 1–5)</h2>
+        <div class="vocab-grid">
+            <div class="vocab-item">
+                <strong>Survive (verb)</strong>
+                To continue living or existing after danger or hardship (<em>"Not many patients survive rare diseases without a specialist."</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Fast vs. Quickly</strong>
+                <strong>Fast</strong> is both an adjective and an adverb (<em>a fast car / drive fast</em>). Never say <em>"fastly"</em>. <strong>Quickly</strong> is an adverb (<em>finish quickly</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Lying vs. Laying</strong>
+                Use <strong>lie / lying</strong> when resting horizontally without an object (<em>"She was lying on the couch"</em>). <strong>Lay</strong> requires an object (<em>"Lay the book on the table"</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Uncountable Nouns &amp; 'The Louvre'</strong>
+                Words like <em>advice, homework, information,</em> and <em>furniture</em> have no plural <em>-s</em>. In English, museums take <strong>the</strong> (<em>the Louvre</em>), and a <strong>portrait artist</strong> paints portraits.
+            </div>
+            <div class="vocab-item">
+                <strong>Versatile 'Get'</strong>
+                Used for <em>become</em> (<em>get soaked, get tired</em>), <em>receive/obtain</em> (<em>get feedback</em>), and <em>arrive</em> (<em>get home</em>).
+            </div>
+            <div class="vocab-item">
+                <strong>Modals of Obligation &amp; Prohibition</strong>
+                <strong>Mustn't</strong> = strictly forbidden. <strong>Don't have to</strong> = not necessary (optional).
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ADJECTIVES VS ADVERBS & -ED / -ING PARTICIPLES -->
+    <section class="section-card">
+        <h2>2. Adjectives vs. Adverbs &amp; -ED / -ING Participles</h2>
+        <div class="rule-box">
+            <strong>Quick Grammar Check:</strong>
+            <ul>
+                <li><strong>Good vs. Well:</strong> <strong>Good</strong> is an adjective describing nouns (<em>a good diagnosis</em>). <strong>Well</strong> is an adverb describing verbs/actions (<em>she sings well, the therapy went well</em>) or means "healthy" (<em>I don't feel well</em>).</li>
+                <li><strong>-ING vs. -ED Adjectives:</strong> <strong>-ING</strong> describes the <em>cause</em> of a feeling (<em>an interesting case, a tiring museum visit</em>). <strong>-ED</strong> describes the <em>person's emotion</em> (<em>I am interested in art, she felt tired</em>).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-sec2">
+            <div class="question-row">
+                <span class="question-text">1. Giorgia speaks English very _______ because she practises consistently.</span>
+                <select class="quiz-select" data-answer="well">
+                    <option value="">Choose...</option>
+                    <option value="good">good</option>
+                    <option value="well">well</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. The guide at the Louvre shared a _______ story about Renaissance painters.</span>
+                <select class="quiz-select" data-answer="fascinating">
+                    <option value="">Choose...</option>
+                    <option value="fascinating">fascinating</option>
+                    <option value="fascinated">fascinated</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Walking around Florence for five hours was exhausting, so we felt very _______ in the evening.</span>
+                <select class="quiz-select" data-answer="tired">
+                    <option value="">Choose...</option>
+                    <option value="tiring">tiring</option>
+                    <option value="tired">tired</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. The group therapy session didn't go very _______ because Greg kept interrupting everyone.</span>
+                <select class="quiz-select" data-answer="well">
+                    <option value="">Choose...</option>
+                    <option value="good">good</option>
+                    <option value="well">well</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. Masaccio's use of linear perspective was a _______ breakthrough for 15th-century art.</span>
+                <select class="quiz-select" data-answer="good">
+                    <option value="">Choose...</option>
+                    <option value="good">good</option>
+                    <option value="well">well</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="check-btn" onclick="checkSection('quiz-sec2', 'fb-sec2')">Check Section 2</button>
+            <button type="button" class="reset-btn" onclick="resetSection('quiz-sec2', 'fb-sec2')">Reset</button>
+            <span class="feedback-msg" id="fb-sec2"></span>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BRING VS TAKE & VERB PATTERNS -->
+    <section class="section-card pink-accent">
+        <h2>3. Direction Verbs (Bring vs. Take) &amp; Verb Patterns</h2>
+        <div class="rule-box">
+            <strong>Direction &amp; Meaning Shifts:</strong>
+            <ul>
+                <li><strong>Bring vs. Take:</strong> Use <strong>bring</strong> for movement <em>towards</em> the speaker/listener (<em>"Bring your notes here"</em>). Use <strong>take</strong> for movement <em>away</em> to another place (<em>"Take your coat when you leave"</em>).</li>
+                <li><strong>Remember / Stop + -ing vs. to + infinitive:</strong><br>
+                <em>Remember to lock</em> = don't forget to do a future task. <em>Remember locking</em> = have a memory of a past action.<br>
+                <em>Stop working</em> = quit/finish the activity. <em>Stop to work</em> = pause another activity in order to start working.</li>
+                <li><strong>Used to + base verb:</strong> Describes a past habit or state that is no longer true (<em>"I used to play the piano"</em>).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-sec3">
+            <div class="question-row">
+                <span class="question-text">1. When you come to our next lesson, please _______ your grammar notebook with you.</span>
+                <select class="quiz-select" data-answer="bring">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. Don't forget to _______ your umbrella when you leave the apartment—it's pouring outside!</span>
+                <select class="quiz-select" data-answer="take">
+                    <option value="">Choose...</option>
+                    <option value="bring">bring</option>
+                    <option value="take">take</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Please remember _______ the front door before you go to bed tonight.</span>
+                <select class="quiz-select" data-answer="to lock">
+                    <option value="">Choose...</option>
+                    <option value="locking">locking</option>
+                    <option value="to lock">to lock</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. At 7:00 PM, she finally stopped _______ because she had finished all her exercises.</span>
+                <select class="quiz-select" data-answer="studying">
+                    <option value="">Choose...</option>
+                    <option value="studying">studying</option>
+                    <option value="to study">to study</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. When I was a child, I _______ watch medical dramas every evening with my family.</span>
+                <select class="quiz-select" data-answer="used to">
+                    <option value="">Choose...</option>
+                    <option value="use to">use to</option>
+                    <option value="used to">used to</option>
+                    <option value="am used to">am used to</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="check-btn" onclick="checkSection('quiz-sec3', 'fb-sec3')">Check Section 3</button>
+            <button type="button" class="reset-btn" onclick="resetSection('quiz-sec3', 'fb-sec3')">Reset</button>
+            <span class="feedback-msg" id="fb-sec3"></span>
+        </div>
+    </section>
+
+    <!-- SECTION 4: QUANTIFIERS MASTERCLASS -->
+    <section class="section-card">
+        <h2>4. Quantifiers Masterclass: Much, Many, A Lot (of), Enough, Too &amp; So</h2>
+        <div class="rule-box">
+            <strong>Complete Quantifier Summary:</strong>
+            <ul>
+                <li><strong>Much vs. Many vs. A lot (of):</strong> Use <strong>much</strong> with uncountable nouns mainly in negatives/questions (<em>not much time</em>). Use <strong>many</strong> with plural countable nouns. Use <strong>a lot of</strong> in positive sentences for both; use <strong>a lot</strong> without a noun at the end of a clause (<em>"She reads a lot"</em>).</li>
+                <li><strong>All of:</strong> Refers to 100% of a specific group (<em>all of the students</em>).</li>
+                <li><strong>Too vs. So:</strong> <strong>Too / too much / too many</strong> = an excessive, problematic amount (<em>too fast, too much noise</em>). <strong>So / so much / so many</strong> = strong positive or dramatic emphasis (<em>so many paintings, thank you so much</em>).</li>
+                <li><strong>Enough:</strong> Goes <strong>before</strong> nouns (<em>enough time</em>) and <strong>after</strong> adjectives/adverbs (<em>fast enough</em>).</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-sec4">
+            <div class="question-row">
+                <span class="question-text">1. We don't have _______ time left before the session finishes, so let's do one more exercise.</span>
+                <select class="quiz-select" data-answer="much">
+                    <option value="">Choose...</option>
+                    <option value="much">much</option>
+                    <option value="many">many</option>
+                    <option value="a lot">a lot</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. There were _______ tourists around the painting that we couldn't take a clear photo.</span>
+                <select class="quiz-select" data-answer="so many">
+                    <option value="">Choose...</option>
+                    <option value="so much">so much</option>
+                    <option value="so many">so many</option>
+                    <option value="too much">too much</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. Please don't speak _______ quickly—I want to understand every single word!</span>
+                <select class="quiz-select" data-answer="too">
+                    <option value="">Choose...</option>
+                    <option value="too">too</option>
+                    <option value="too much">too much</option>
+                    <option value="enough">enough</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. Masaccio achieved _______ during his short career, influencing generations of artists.</span>
+                <select class="quiz-select" data-answer="a lot">
+                    <option value="">Choose...</option>
+                    <option value="a lot">a lot</option>
+                    <option value="a lot of">a lot of</option>
+                    <option value="much">much</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. _______ the patients in the ward were surprised when Dr. House started diagnosing them.</span>
+                <select class="quiz-select" data-answer="All of">
+                    <option value="">Choose...</option>
+                    <option value="All of">All of</option>
+                    <option value="Much">Much</option>
+                    <option value="Enough">Enough</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">6. Did you have _______ time to review all the notes from Lesson 5?</span>
+                <select class="quiz-select" data-answer="enough">
+                    <option value="">Choose...</option>
+                    <option value="enough">enough</option>
+                    <option value="too">too</option>
+                    <option value="so">so</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="check-btn" onclick="checkSection('quiz-sec4', 'fb-sec4')">Check Section 4</button>
+            <button type="button" class="reset-btn" onclick="resetSection('quiz-sec4', 'fb-sec4')">Reset</button>
+            <span class="feedback-msg" id="fb-sec4"></span>
+        </div>
+    </section>
+
+    <!-- SECTION 5: NARRATIVE TENSES, REPORTED SPEECH & MODALS -->
+    <section class="section-card pink-accent">
+        <h2>5. Narrative Tenses, Reported Speech &amp; Modals</h2>
+        <div class="rule-box">
+            <strong>Structuring Stories &amp; Reporting Statements:</strong>
+            <ul>
+                <li><strong>Past Perfect (had + past participle):</strong> Used for an action completed <em>before</em> another past moment (<em>"By the time the doctor arrived, the patient <strong>had fallen</strong> asleep"</em>).</li>
+                <li><strong>Reported Speech:</strong> When reporting what someone said in the past, shift verbs one step back (<em>Present Simple → Past Simple</em>; <em>will → would</em>) and adjust time words (<em>today → that day</em>, <em>tomorrow → the next day</em>).</li>
+                <li><strong>Prohibition vs. Advice:</strong> Use <strong>mustn't</strong> when a rule forbids something.</li>
+            </ul>
+        </div>
+
+        <div class="question-list" id="quiz-sec5">
+            <div class="question-row">
+                <span class="question-text">1. By the time we arrived at the Brancacci Chapel, it _______ dark outside.</span>
+                <select class="quiz-select" data-answer="had become">
+                    <option value="">Choose...</option>
+                    <option value="became">became</option>
+                    <option value="had become">had become</option>
+                    <option value="has become">has become</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. "I love Renaissance art," Giorgia said. → Giorgia said that she _______ Renaissance art.</span>
+                <select class="quiz-select" data-answer="loved">
+                    <option value="">Choose...</option>
+                    <option value="loves">loves</option>
+                    <option value="loved">loved</option>
+                    <option value="has loved">has loved</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. In the psychiatric ward, patients _______ mention taboo topics during group therapy—it's against the rules.</span>
+                <select class="quiz-select" data-answer="mustn't">
+                    <option value="">Choose...</option>
+                    <option value="mustn't">mustn't</option>
+                    <option value="don't have to">don't have to</option>
+                    <option value="didn't use to">didn't use to</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. The therapist gave the patients some very helpful _______ about managing anger.</span>
+                <select class="quiz-select" data-answer="advice">
+                    <option value="">Choose...</option>
+                    <option value="advices">advices</option>
+                    <option value="advice">advice</option>
+                    <option value="an advice">an advice</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. House realized that Dr. Nolan _______ to give the other patients what they wanted except him.</span>
+                <select class="quiz-select" data-answer="had decided">
+                    <option value="">Choose...</option>
+                    <option value="had decided">had decided</option>
+                    <option value="decides">decides</option>
+                    <option value="has decided">has decided</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="check-btn" onclick="checkSection('quiz-sec5', 'fb-sec5')">Check Section 5</button>
+            <button type="button" class="reset-btn" onclick="resetSection('quiz-sec5', 'fb-sec5')">Reset</button>
+            <span class="feedback-msg" id="fb-sec5"></span>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VIDEO STUDY - HOUSE M.D. -->
+    <section class="section-card mint-accent">
+        <h2>6. Video Lab: House M.D. — Diagnostic Instincts in Mayfield</h2>
+
+        <div class="synopsis-box">
+            <h3>📋 Context &amp; Synopsis: Who is Dr. House &amp; What is Happening?</h3>
+            <p><strong>Who is Dr. Gregory House?</strong> Dr. Gregory House is the brilliant, sarcastic, and deeply cynical protagonist of the hit medical drama <em>House M.D.</em> Known for his sharp intellect, limp (requiring a cane), and disregard for conventional rules, House normally leads a team of diagnosticians solving mysterious medical cases.</p>
+            <p><strong>What is the situation in this clip?</strong> Following a severe mental health crisis and addiction to painkillers (Vicodin), House has checked himself into <strong>Mayfield Psychiatric Hospital</strong> as a patient rather than a doctor. In this scene, he joins his first group therapy session and recreational activities alongside eccentric fellow patients—including his energetic roommate Alvie, a claustrophobic patient named Jay, and a silent woman who only responds to music. Unable to turn off his analytical mind, House refuses to cooperate with the therapists and immediately begins observing, provoking, and "diagnosing" everyone around him—until his doctor, Dr. Nolan, challenges him to stop fighting the system and use his leadership to actually help the ward.</p>
+        </div>
+
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube.com/embed/NS3MRJKyrLg" 
+                title="House Can't Stop Diagnosing the Other Psychiatric Patients | House M.D." 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <h3>Video Comprehension Check</h3>
+        <div class="question-list" id="quiz-sec6">
+            <div class="question-row">
+                <span class="question-text">1. Why does Dr. Beasley end the group therapy session early on House's first day?</span>
+                <select class="quiz-select" data-answer="taboo">
+                    <option value="">Choose...</option>
+                    <option value="taboo">House immediately brings up a taboo topic and refuses to cooperate</option>
+                    <option value="fire">There is a fire alarm in the hospital</option>
+                    <option value="time">The session had already lasted for three hours</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">2. What reaction does House notice from the silent female patient when Alvie plays the piano?</span>
+                <select class="quiz-select" data-answer="head">
+                    <option value="">Choose...</option>
+                    <option value="head">Her head bobs in time to the music</option>
+                    <option value="sing">She starts singing loudly in German</option>
+                    <option value="leave">She walks out of the room immediately</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">3. What complaint does House use to rally the other patients in the recreation room?</span>
+                <select class="quiz-select" data-answer="pingpong">
+                    <option value="">Choose...</option>
+                    <option value="pingpong">They have a ping-pong table without paddles or a net</option>
+                    <option value="food">There is no coffee served at breakfast</option>
+                    <option value="tv">The television only plays cartoons</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">4. How does Dr. Nolan respond to House's rebellion?</span>
+                <select class="quiz-select" data-answer="gives">
+                    <option value="">Choose...</option>
+                    <option value="gives">He gives the other patients what they asked for, except House</option>
+                    <option value="expels">He immediately expels House from Mayfield</option>
+                    <option value="ignores">He locks the recreation room permanently</option>
+                </select>
+            </div>
+            <div class="question-row">
+                <span class="question-text">5. What does Dr. Nolan tell House he could do on the ward instead of fighting?</span>
+                <select class="quiz-select" data-answer="leader">
+                    <option value="">Choose...</option>
+                    <option value="leader">Use his natural leadership to do something useful for the patients and himself</option>
+                    <option value="medication">Write prescriptions for all the staff members</option>
+                    <option value="leave">Leave the hospital without finishing treatment</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="check-btn" onclick="checkSection('quiz-sec6', 'fb-sec6')">Check Video Answers</button>
+            <button type="button" class="reset-btn" onclick="resetSection('quiz-sec6', 'fb-sec6')">Reset</button>
+            <span class="feedback-msg" id="fb-sec6"></span>
+        </div>
+    </section>
+
+    <!-- SECTION 7: WRITING & TRANSFORMATION WORKSHOP -->
+    <section class="section-card">
+        <h2>7. Active Writing &amp; Sentence Transformation</h2>
+        <p style="font-size: 0.94rem; color: var(--text-muted); margin-bottom: 14px;">
+            Apply all your grammar skills in writing. Rewrite the sentences below and check the model answers, then write a short scene summary.
+        </p>
+
+        <div class="transform-card">
+            <p><strong>A. Reported Speech:</strong> "I am trying to help you," Dr. Beasley told House.</p>
+            <input type="text" placeholder="Dr. Beasley told House that she...">
+            <button type="button" class="reveal-btn" onclick="toggleModel(this)">Show Model Answer</button>
+            <div class="model-answer">Dr. Beasley told House that she was trying to help him.</div>
+        </div>
+
+        <div class="transform-card">
+            <p><strong>B. Past Perfect:</strong> First, House checked into Mayfield. Then, he joined group therapy.</p>
+            <input type="text" placeholder="By the time House joined group therapy, he...">
+            <button type="button" class="reveal-btn" onclick="toggleModel(this)">Show Model Answer</button>
+            <div class="model-answer">By the time House joined group therapy, he had checked into Mayfield.</div>
+        </div>
+
+        <div class="transform-card">
+            <p><strong>C. Quantifier Rewrite ('enough'):</strong> The ping-pong table wasn't complete because there weren't paddles or a net. <em>(Rewrite using "enough equipment")</em></p>
+            <input type="text" placeholder="The patients didn't have...">
+            <button type="button" class="reveal-btn" onclick="toggleModel(this)">Show Model Answer</button>
+            <div class="model-answer">The patients didn't have enough equipment to play table tennis properly.</div>
+        </div>
+
+        <div class="transform-card" style="margin-bottom: 0;">
+            <p><strong>D. Free Writing Challenge:</strong> Write 4–5 sentences describing either your favorite scene from a medical drama (like <em>Grey's Anatomy</em> or <em>House M.D.</em>) or a visit to a museum. Try to include at least 4 of these elements:</p>
+            <ul class="checklist">
+                <li>✓ -ed or -ing adjective</li>
+                <li>✓ Past Perfect (had + past participle)</li>
+                <li>✓ Adverb of manner (well / quickly / fast)</li>
+                <li>✓ Quantifier (so many / too much / enough / a lot)</li>
+                <li>✓ Bring or Take</li>
+            </ul>
+            <textarea placeholder="Write your paragraph here..."></textarea>
+        </div>
+    </section>
+
+    <div class="global-actions">
+        <button type="button" class="check-btn" style="padding: 13px 30px; font-size: 1rem;" onclick="checkAllSections()">Check All Exercises</button>
+        <button type="button" class="reset-btn" style="padding: 13px 24px; font-size: 0.98rem;" onclick="resetAllSections()">Reset Entire Page</button>
+    </div>
+</div>
+
+<footer>
+    <img src="./my logo en_2.png" onerror="this.onerror=null; this.src='./my logo en2.png'; this.onerror=function(){this.style.display='none';};" alt="James Wynne English Logo" style="height: 44px; width: auto; margin-bottom: 8px; display: inline-block;">
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
+</footer>
+
+<script>
+    function updateGlobalScore() {
+        const allSelects = document.querySelectorAll('.quiz-select');
+        let totalCorrect = 0;
+        allSelects.forEach(select => {
+            if (select.value === select.getAttribute('data-answer')) {
+                totalCorrect++;
+            }
+        });
+        document.getElementById('globalScore').textContent = `Total Score: ${totalCorrect} / ${allSelects.length}`;
+    }
+
+    function checkSection(containerId, feedbackId) {
+        const container = document.getElementById(containerId);
+        const selects = container.querySelectorAll('.quiz-select');
+        let correctCount = 0;
+        let total = selects.length;
+
+        selects.forEach(select => {
+            const userVal = select.value;
+            const correctVal = select.getAttribute('data-answer');
+            const row = select.closest('.question-row');
+
+            select.classList.remove('correct', 'incorrect');
+            if (row) row.classList.remove('correct-row', 'incorrect-row');
+
+            if (userVal === correctVal) {
+                select.classList.add('correct');
+                if (row) row.classList.add('correct-row');
+                correctCount++;
+            } else {
+                select.classList.add('incorrect');
+                if (row) row.classList.add('incorrect-row');
+            }
+        });
+
+        const fb = document.getElementById(feedbackId);
+        if (correctCount === total) {
+            fb.style.color = '#166534';
+            fb.textContent = `🎉 Perfect! ${correctCount}/${total} correct!`;
+        } else {
+            fb.style.color = '#be185d';
+            fb.textContent = `You got ${correctCount}/${total}. Review the red items and try again!`;
+        }
+
+        updateGlobalScore();
+    }
+
+    function resetSection(containerId, feedbackId) {
+        const container = document.getElementById(containerId);
+        const selects = container.querySelectorAll('.quiz-select');
+        selects.forEach(select => {
+            select.value = '';
+            select.classList.remove('correct', 'incorrect');
+            const row = select.closest('.question-row');
+            if (row) row.classList.remove('correct-row', 'incorrect-row');
+        });
+        document.getElementById(feedbackId).textContent = '';
+        updateGlobalScore();
+    }
+
+    function checkAllSections() {
+        const sections = [
+            ['quiz-sec2', 'fb-sec2'],
+            ['quiz-sec3', 'fb-sec3'],
+            ['quiz-sec4', 'fb-sec4'],
+            ['quiz-sec5', 'fb-sec5'],
+            ['quiz-sec6', 'fb-sec6']
+        ];
+        sections.forEach(([quizId, fbId]) => checkSection(quizId, fbId));
+    }
+
+    function resetAllSections() {
+        const sections = [
+            ['quiz-sec2', 'fb-sec2'],
+            ['quiz-sec3', 'fb-sec3'],
+            ['quiz-sec4', 'fb-sec4'],
+            ['quiz-sec5', 'fb-sec5'],
+            ['quiz-sec6', 'fb-sec6']
+        ];
+        sections.forEach(([quizId, fbId]) => resetSection(quizId, fbId));
+    }
+
+    function toggleModel(btn) {
+        const answer = btn.nextElementSibling;
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            btn.textContent = 'Show Model Answer';
+        } else {
+            answer.style.display = 'block';
+            btn.textContent = 'Hide Model Answer';
+        }
+    }
+</script>
+
+</body>
+</html>
