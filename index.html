@@ -194,14 +194,15 @@
         }
 
 
-        /* Greyed-out / Upcoming Lesson Card Styling */
+        /* Greyed-out / Upcoming Lesson Card Styling (Double-Tap Enabled) */
         .lesson-card.upcoming-card {
             background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
             border-color: #cbd5e1;
             opacity: 0.65;
-            cursor: not-allowed;
-            pointer-events: none;
+            cursor: pointer;
             filter: grayscale(85%);
+            touch-action: manipulation;
+            user-select: none;
         }
 
         .lesson-card.upcoming-card h2 {
@@ -302,7 +303,7 @@
             <p>B1–B2 study notes and practice exercises covering gerunds, time expressions, pronouns, phrasal verbs, word formation (-ful), <em>Into Focus</em>, and exam tips.</p>
         </a>
 
-        <a href="8giorgia.html" class="lesson-card upcoming-card" aria-disabled="true" tabindex="-1">
+        <a href="8giorgia.html" id="lesson8Card" class="lesson-card upcoming-card">
             <h2>Lesson 8: Human Nature <span>08/12/2026</span></h2>
             <p>Personality adjectives &amp; compound adjectives, Past Perfect Simple vs. Continuous, and relationship vocabulary (Coming Soon).</p>
         </a>
@@ -356,6 +357,25 @@
         deferredPrompt = null;
         console.log('PWA installed successfully');
     });
+
+    const lesson8Card = document.getElementById('lesson8Card');
+    if (lesson8Card) {
+        let lastTapTime = 0;
+
+        lesson8Card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const now = Date.now();
+            if (now - lastTapTime > 0 && now - lastTapTime <= 400) {
+                window.location.href = lesson8Card.getAttribute('href');
+            }
+            lastTapTime = now;
+        });
+
+        lesson8Card.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+            window.location.href = lesson8Card.getAttribute('href');
+        });
+    }
 </script>
 
 </body>
