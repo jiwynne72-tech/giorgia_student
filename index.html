@@ -15,6 +15,7 @@
             --primary-purple: #8b5cf6;
             --primary-pink: #ec4899;
             --summary-teal: #0d9488;
+            --notes-amber: #d97706;
             --text-main: #2d3748;
             --text-muted: #4a5568;
             --card-bg: #ffffff;
@@ -172,6 +173,26 @@
             color: #0f766e;
         }
 
+        /* Distinct Amber Card Styling for 7giorgia.html */
+        .lesson-card.notes-card {
+            background: linear-gradient(135deg, #fffbeb, #fef3c7);
+            border-color: #fcd34d;
+        }
+
+        .lesson-card.notes-card:hover {
+            border-color: var(--notes-amber);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
+        }
+
+        .lesson-card.notes-card h2 {
+            color: var(--notes-amber);
+        }
+
+        .lesson-card.notes-card h2 span {
+            background: #fde68a;
+            color: #92400e;
+        }
+
         footer {
             text-align: center;
             padding: 14px;
@@ -250,6 +271,11 @@
         <a href="6giorgia.html" class="lesson-card">
             <h2>Lesson 6: Master Recap <span>24/11/2026</span></h2>
             <p>Extensive course recap (Lessons 1–5) covering vocabulary, adverbs, direction verbs, quantifiers, narrative tenses, and a House M.D. video comprehension lab.</p>
+        </a>
+
+        <a href="7giorgia.html" class="lesson-card notes-card">
+            <h2>Lesson 7: Study Notes <span>25/11/2026</span></h2>
+            <p>B1–B2 study notes and practice exercises covering gerunds, time expressions, pronouns, phrasal verbs, word formation (-ful), <em>Into Focus</em>, and exam tips.</p>
         </a>
     </div>
 </div>
