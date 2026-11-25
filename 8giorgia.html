@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8: Unit 2 – Human Nature | Giorgia's English Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pastel-pink: #fff0f5;
+            --bg-pastel-lavender: #f3e8ff;
+            --bg-pastel-blue: #ebf8ff;
+            --primary-purple: #8b5cf6;
+            --primary-pink: #ec4899;
+            --accent-teal: #0d9488;
+            --accent-amber: #d97706;
+            --accent-blue: #2563eb;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --card-bg: #ffffff;
+            --border-radius: 20px;
+            --correct-bg: #d1fae5;
+            --correct-border: #10b981;
+            --correct-text: #065f46;
+            --wrong-bg: #fee2e2;
+            --wrong-border: #ef4444;
+            --wrong-text: #991b1b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, var(--bg-pastel-lavender) 0%, var(--bg-pastel-pink) 50%, var(--bg-pastel-blue) 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.12);
+            padding: 36px 32px;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #f3e8ff;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--primary-purple);
+            font-weight: 600;
+            background: #f3e8ff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            color: #fff;
+        }
+
+        .date-badge {
+            background: #fce7f3;
+            color: #be185d;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            color: var(--primary-purple);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .toc-pills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .toc-pills a {
+            text-decoration: none;
+            background: #faf5ff;
+            border: 1.5px solid #e9d5ff;
+            color: var(--primary-purple);
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .toc-pills a:hover {
+            background: var(--primary-purple);
+            color: #fff;
+        }
+
+        section {
+            margin-bottom: 42px;
+            padding-top: 10px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #fbcfe8;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--primary-pink);
+        }
+
+        .grammar-box {
+            background: linear-gradient(135deg, #f8fafc, #f3e8ff);
+            border-left: 5px solid var(--primary-purple);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .grammar-box h3 {
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .rule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .rule-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .rule-card h4 {
+            color: var(--accent-teal);
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .rule-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .example-pill {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .exercise-card {
+            background: #ffffff;
+            border: 2px solid #f1f5f9;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+        }
+
+        .exercise-card h3 {
+            color: var(--text-main);
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ex-badge {
+            background: var(--primary-purple);
+            color: #fff;
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .ex-instructions {
+            color: var(--text-muted);
+            font-size: 0.94rem;
+            margin-bottom: 16px;
+        }
+
+        /* Personality Test Styles */
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .test-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .test-item:hover {
+            border-color: var(--primary-purple);
+            background: #faf5ff;
+        }
+
+        .test-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-purple);
+        }
+
+        .symbol-tag {
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .personality-profiles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .profile-box {
+            border-radius: 14px;
+            padding: 16px;
+            border: 2px solid transparent;
+        }
+
+        .profile-agreeable { background: #fdf2f8; border-color: #fbcfe8; }
+        .profile-imaginative { background: #fefce8; border-color: #fef08a; }
+        .profile-organised { background: #eff6ff; border-color: #bfdbfe; }
+        .profile-deep { background: #fef2f2; border-color: #fecaca; }
+        .profile-sociable { background: #f0fdf4; border-color: #bbf7d0; }
+
+        .profile-box h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-box p {
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        /* Form inputs & selects */
+        select, input[type="text"] {
+            font-family: inherit;
+            font-size: 0.93rem;
+            padding: 6px 10px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+
+        input[type="text"].short-input {
+            width: 130px;
+        }
+
+        input[type="text"].med-input {
+            width: 210px;
+        }
+
+        input[type="text"].long-input {
+            width: 100%;
+            max-width: 480px;
+            margin-top: 6px;
+        }
+
+        .question-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .question-list li {
+            background: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .story-passage {
+            background: #fffbeb;
+            border: 1.5px solid #fde68a;
+            border-radius: 14px;
+            padding: 20px;
+            line-height: 2.1;
+            font-size: 0.98rem;
+            margin-bottom: 16px;
+        }
+
+        .story-passage h4 {
+            color: #b45309;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+            line-height: 1.4;
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: #f1f5f9;
+            padding: 10px 14px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-purple);
+        }
+
+        .word-bank span {
+            background: #fff;
+            padding: 3px 10px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Buttons & Feedback */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 9px 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-check {
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.25);
+        }
+
+        .btn-check:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 15px rgba(139, 92, 246, 0.35);
+        }
+
+        .btn-reset {
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .btn-reset:hover {
+            background: #cbd5e1;
+        }
+
+        .btn-show {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .btn-show:hover {
+            background: #fde68a;
+        }
+
+        .feedback-banner {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .correct-field {
+            background-color: var(--correct-bg) !important;
+            border-color: var(--correct-border) !important;
+            color: var(--correct-text) !important;
+        }
+
+        .wrong-field {
+            background-color: var(--wrong-bg) !important;
+            border-color: var(--wrong-border) !important;
+            color: var(--wrong-text) !important;
+        }
+
+        .reading-box {
+            background: #f0fdfa;
+            border: 1.5px solid #99f6e4;
+            border-radius: 14px;
+            padding: 18px 22px;
+            margin-bottom: 18px;
+            font-size: 0.96rem;
+        }
+
+        .reading-box h4 {
+            color: var(--accent-teal);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .reading-box p {
+            margin-bottom: 10px;
+        }
+
+        .mcq-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .mcq-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background 0.15s;
+        }
+
+        .mcq-options label:hover {
+            background: #edf2f7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.92);
+            max-width: 900px;
+            margin: 20px auto 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        footer a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            margin: 0 6px;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 22px 16px;
+            }
+            header h1 {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="top-nav">
+        <a href="index.html" class="back-btn">← Back to Portal</a>
+        <span class="date-badge">Lesson 8 • 08/12/2026</span>
+    </div>
+
+    <header>
+        <h1>Unit 2: Human Nature 🧠❤️</h1>
+        <p>Describing Personality, Compound Adjectives, Past Perfect Simple &amp; Continuous, and Relationship Phrases</p>
+    </header>
+
+    <div class="toc-pills">
+        <a href="#part1">1. Personality Test &amp; Profiles</a>
+        <a href="#part2">2. Personality &amp; Compound Adjectives</a>
+        <a href="#part3">3. Grammar: Past Perfect Simple &amp; Continuous</a>
+        <a href="#part4">4. Relationships &amp; Exam Practice</a>
+    </div>
+
+    <!-- ==================== PART 1: PERSONALITY TEST & WORD FORMATION ==================== -->
+    <section id="part1">
+        <div class="section-header">
+            <h2>1. Know Yourself: Personality &amp; Word Formation</h2>
+        </div>
+
+        <div class="grammar-box">
+            <h3>💡 Word Formation: Nouns → Positive &amp; Negative Adjectives</h3>
+            <p>In English (and in B1/B2 exam tasks!), we often build positive and negative personality adjectives from abstract nouns using suffixes (<strong>-ous, -ly, -est, -kind, -tient, -lite, -ible, -tive</strong>) and negative prefixes (<strong>un-, dis-, in-, im-, ir-</strong>).</p>
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <h4>Prefix un- &amp; dis-</h4>
+                    <p><strong>ambition</strong> → ambitious / <em>un</em>ambitious<br>
+                    <strong>friendliness</strong> → friendly / <em>un</em>friendly<br>
+                    <strong>kindness</strong> → kind / <em>un</em>kind<br>
+                    <strong>honesty</strong> → honest / <em>dis</em>honest</p>
+                </div>
+                <div class="rule-card">
+                    <h4>Prefix im-, ir- &amp; in-</h4>
+                    <p><strong>patience</strong> → patient / <em>im</em>patient<br>
+                    <strong>politeness</strong> → polite / <em>im</em>polite<br>
+                    <strong>responsibility</strong> → responsible / <em>ir</em>responsible<br>
+                    <strong>sensitivity</strong> → sensitive / <em>in</em>sensitive</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 1: Word Formation -->
+        <div class="exercise-card" id="ex1">
+            <h3><span class="ex-badge">Exercise 1</span> Positive &amp; Negative Adjectives</h3>
+            <p class="ex-instructions">Type the positive and negative adjectives for each noun below (just like Exercise 1 on page 24).</p>
+            <ul class="question-list">
+                <li>1. <strong>ambition</strong> → Positive: <input type="text" class="short-input" data-ans="ambitious" value="ambitious" readonly> | Negative: <input type="text" class="short-input" data-ans="unambitious" value="unambitious" readonly> <em>(Example)</em></li>
+                <li>2. <strong>friendliness</strong> → Positive: <input type="text" class="short-input" data-ans="friendly" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="unfriendly" placeholder="..."></li>
+                <li>3. <strong>honesty</strong> → Positive: <input type="text" class="short-input" data-ans="honest" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="dishonest" placeholder="..."></li>
+                <li>4. <strong>kindness</strong> → Positive: <input type="text" class="short-input" data-ans="kind" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="unkind" placeholder="..."></li>
+                <li>5. <strong>patience</strong> → Positive: <input type="text" class="short-input" data-ans="patient" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="impatient" placeholder="..."></li>
+                <li>6. <strong>politeness</strong> → Positive: <input type="text" class="short-input" data-ans="polite" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="impolite" placeholder="..."></li>
+                <li>7. <strong>responsibility</strong> → Positive: <input type="text" class="short-input" data-ans="responsible" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="irresponsible" placeholder="..."></li>
+                <li>8. <strong>sensitivity</strong> → Positive: <input type="text" class="short-input" data-ans="sensitive" placeholder="..."> | Negative: <input type="text" class="short-input" data-ans="insensitive" placeholder="..."></li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex1')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex1')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex1')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex1-feedback"></div>
+        </div>
+
+        <!-- Exercise 2: Interactive Personality Test -->
+        <div class="exercise-card" id="ex2">
+            <h3><span class="ex-badge">Exercise 2</span> Interactive Personality Test</h3>
+            <p class="ex-instructions">Tick every sentence that truly describes the real you, then click <strong>Calculate My Result</strong> to see which personality profiles match you best!</p>
+            <div class="test-grid">
+                <label class="test-item"><input type="checkbox" data-type="imaginative"><span class="symbol-tag">⭐</span> 1. I learn new things fast.</label>
+                <label class="test-item"><input type="checkbox" data-type="imaginative"><span class="symbol-tag">⭐</span> 11. I come up with new ideas.</label>
+                <label class="test-item"><input type="checkbox" data-type="agreeable"><span class="symbol-tag">💙</span> 2. I feel others' emotions.</label>
+                <label class="test-item"><input type="checkbox" data-type="sociable"><span class="symbol-tag">⚫</span> 12. I make new friends easily.</label>
+                <label class="test-item"><input type="checkbox" data-type="organised"><span class="symbol-tag">🟦</span> 3. I do jobs straight away.</label>
+                <label class="test-item"><input type="checkbox" data-type="deep"><span class="symbol-tag">🔺</span> 13. I prefer small groups of people.</label>
+                <label class="test-item"><input type="checkbox" data-type="deep"><span class="symbol-tag">🔺</span> 4. I like being alone.</label>
+                <label class="test-item"><input type="checkbox" data-type="agreeable"><span class="symbol-tag">💙</span> 14. I have a soft heart.</label>
+                <label class="test-item"><input type="checkbox" data-type="imaginative"><span class="symbol-tag">⭐</span> 5. I have a vivid imagination.</label>
+                <label class="test-item"><input type="checkbox" data-type="sociable"><span class="symbol-tag">⚫</span> 15. I usually start conversations.</label>
+                <label class="test-item"><input type="checkbox" data-type="agreeable"><span class="symbol-tag">💙</span> 6. I make people feel relaxed.</label>
+                <label class="test-item"><input type="checkbox" data-type="agreeable"><span class="symbol-tag">💙</span> 16. I love helping others.</label>
+                <label class="test-item"><input type="checkbox" data-type="sociable"><span class="symbol-tag">⚫</span> 7. I like telling funny stories.</label>
+                <label class="test-item"><input type="checkbox" data-type="imaginative"><span class="symbol-tag">⭐</span> 17. I enjoy the arts.</label>
+                <label class="test-item"><input type="checkbox" data-type="deep"><span class="symbol-tag">🔺</span> 8. I know myself well.</label>
+                <label class="test-item"><input type="checkbox" data-type="organised"><span class="symbol-tag">🟦</span> 18. I keep my things tidy.</label>
+                <label class="test-item"><input type="checkbox" data-type="organised"><span class="symbol-tag">🟦</span> 9. I pay attention to detail.</label>
+                <label class="test-item"><input type="checkbox" data-type="deep"><span class="symbol-tag">🔺</span> 19. I think before I speak.</label>
+                <label class="test-item"><input type="checkbox" data-type="sociable"><span class="symbol-tag">⚫</span> 10. I love partying.</label>
+                <label class="test-item"><input type="checkbox" data-type="organised"><span class="symbol-tag">🟦</span> 20. I plan things in advance.</label>
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="calculatePersonality()">Calculate My Result ✨</button>
+                <button class="btn btn-reset" onclick="resetPersonality()">Clear Choices</button>
+            </div>
+            <div class="feedback-banner" id="personality-result"></div>
+
+            <div class="personality-profiles">
+                <div class="profile-box profile-agreeable">
+                    <h4>💙 AGREEABLE</h4>
+                    <p>You're <strong>kind-hearted</strong> and sensitive to the needs of others. Being relaxed, <strong>trusting</strong> and <strong>laid-back</strong>, you work well with others. In difficult situations you're <strong>tactful</strong> and avoid hurting people. In fact, you're very good at <strong>making people feel at ease</strong>. You're <strong>affectionate</strong> and show your feelings. You're <strong>good-natured</strong>, friendly and popular.</p>
+                </div>
+                <div class="profile-box profile-imaginative">
+                    <h4>⭐ IMAGINATIVE</h4>
+                    <p>You're artistic and creative and so you have the ability to <strong>think outside the box</strong>. You're <strong>daring</strong> and you're not afraid to do adventurous things. You're also quite <strong>perceptive</strong> and <strong>intellectual</strong> and <strong>have a love of learning</strong>.</p>
+                </div>
+                <div class="profile-box profile-organised">
+                    <h4>🟦 ORGANISED</h4>
+                    <p>You're <strong>thorough</strong> – you like to plan things carefully. Being quite <strong>strong-willed</strong>, you usually get what you want. You're <strong>level-headed</strong> and you think things through carefully. In the future you will excel in leadership positions.</p>
+                </div>
+                <div class="profile-box profile-deep">
+                    <h4>🔺 DEEP</h4>
+                    <p>You're a deep thinker and you're not comfortable with small talk. You're not <strong>insecure</strong>, but you are quite <strong>humble</strong>, and you can be a little <strong>self-conscious</strong> or even <strong>self-critical</strong> at times. You enjoy your own company, but you're not a loner – you like being with close friends. Above all you're <strong>fair-minded</strong> and if you feel strongly about something, you're not afraid to speak up.</p>
+                </div>
+                <div class="profile-box profile-sociable">
+                    <h4>⚫ SOCIABLE</h4>
+                    <p>You're <strong>the life and soul of the party</strong> and love being the centre of attention. People enjoy your company because you're <strong>witty</strong> and <strong>spontaneous</strong>. You're <strong>larger than life</strong> and good fun to be around. However, on bad days you can be <strong>moody</strong> and <strong>short-tempered</strong>. Also, there are times when you appear a little <strong>self-centred</strong> and <strong>full of yourself</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PART 2: VOCABULARY & COMPOUND ADJECTIVES ==================== -->
+    <section id="part2">
+        <div class="section-header">
+            <h2>2. Personality Adjectives, Compound Adjectives &amp; Idioms</h2>
+        </div>
+
+        <div class="grammar-box">
+            <h3>📖 Key Vocabulary Reference (with Italian Translations)</h3>
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <h4>Single-Word Adjectives</h4>
+                    <p><strong>affectionate</strong> = affettuoso/a<br>
+                    <strong>daring</strong> = audace, coraggioso/a<br>
+                    <strong>humble</strong> = umile, modesto/a<br>
+                    <strong>insecure</strong> = insicuro/a<br>
+                    <strong>intellectual</strong> = intellettuale<br>
+                    <strong>moody</strong> = lunatico/a, di cattivo umore</p>
+                </div>
+                <div class="rule-card">
+                    <h4>Single-Word Adjectives (Part 2)</h4>
+                    <p><strong>perceptive</strong> = perspicace, acuto/a<br>
+                    <strong>spontaneous</strong> = spontaneo/a<br>
+                    <strong>tactful</strong> = pieno/a di tatto, diplomatico/a<br>
+                    <strong>thorough</strong> = scrupoloso/a, meticoloso/a<br>
+                    <strong>trusting</strong> = fiducioso/a<br>
+                    <strong>witty</strong> = spiritoso/a, brillante</p>
+                </div>
+                <div class="rule-card">
+                    <h4>Compound Adjectives</h4>
+                    <p><strong>fair-minded</strong> (imparziale)<br>
+                    <strong>good-natured</strong> (bonario/a)<br>
+                    <strong>kind-hearted</strong> (di buon cuore)<br>
+                    <strong>laid-back</strong> (rilassato/a, tranquillo/a)<br>
+                    <strong>level-headed</strong> (equilibrato/a)<br>
+                    <strong>self-centred</strong> (egocentrico/a)<br>
+                    <strong>self-conscious</strong> (imbarazzato/a, timido/a)<br>
+                    <strong>self-critical</strong> (autocritico/a)<br>
+                    <strong>short-tempered</strong> (irascibile)<br>
+                    <strong>strong-willed</strong> (determinato/a, testardo/a)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 3: Choose the correct personality adjective -->
+        <div class="exercise-card" id="ex3">
+            <h3><span class="ex-badge">Exercise 3</span> Personality Adjectives in Context</h3>
+            <p class="ex-instructions">Read the descriptions and choose the correct adjective (Exercises 5 &amp; 6, page 25, plus extra practice).</p>
+            <ul class="question-list">
+                <li>1. Megan is brave enough to say things that shock people. She's quite
+                    <select data-ans="daring">
+                        <option value="">-- choose --</option>
+                        <option value="daring">daring</option>
+                        <option value="insecure">insecure</option>
+                    </select>.
+                </li>
+                <li>2. Janet understands difficult concepts and enjoys debating serious topics. She's
+                    <select data-ans="intellectual">
+                        <option value="">-- choose --</option>
+                        <option value="intellectual">intellectual</option>
+                        <option value="witty">witty</option>
+                    </select>.
+                </li>
+                <li>3. Tom is diplomatic and is unlikely to upset or embarrass people. He's very
+                    <select data-ans="tactful">
+                        <option value="">-- choose --</option>
+                        <option value="thorough">thorough</option>
+                        <option value="tactful">tactful</option>
+                    </select>.
+                </li>
+                <li>4. Sue has a very gentle, loving nature. She's extremely
+                    <select data-ans="affectionate">
+                        <option value="">-- choose --</option>
+                        <option value="perceptive">perceptive</option>
+                        <option value="affectionate">affectionate</option>
+                    </select>.
+                </li>
+                <li>5. Rick never talks about his achievements. He's very
+                    <select data-ans="humble">
+                        <option value="">-- choose --</option>
+                        <option value="humble">humble</option>
+                        <option value="moody">moody</option>
+                    </select>.
+                </li>
+                <li>6. Clara checks every single detail of her report three times before submitting it. She's super
+                    <select data-ans="thorough">
+                        <option value="">-- choose --</option>
+                        <option value="spontaneous">spontaneous</option>
+                        <option value="thorough">thorough</option>
+                    </select>.
+                </li>
+                <li>7. Leo always notices immediately when a friend is feeling sad, even if they smile. He's very
+                    <select data-ans="perceptive">
+                        <option value="">-- choose --</option>
+                        <option value="perceptive">perceptive</option>
+                        <option value="trusting">trusting</option>
+                    </select>.
+                </li>
+                <li>8. Elena makes everyone laugh with her clever, fast jokes. She's really
+                    <select data-ans="witty">
+                        <option value="">-- choose --</option>
+                        <option value="witty">witty</option>
+                        <option value="insecure">insecure</option>
+                    </select>.
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex3')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex3')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex3')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex3-feedback"></div>
+        </div>
+
+        <!-- Exercise 4: Compound Adjectives -->
+        <div class="exercise-card" id="ex4">
+            <h3><span class="ex-badge">Exercise 4</span> Compound Adjectives Builder &amp; Quotes</h3>
+            <p class="ex-instructions">Complete the 10 compound adjectives from the profiles, then match the quotes below (Exercises 7 &amp; 8, page 25).</p>
+            <div class="rule-grid" style="margin-bottom: 16px;">
+                <div class="rule-card">
+                    <p>1. <input type="text" class="short-input" data-ans="fair" placeholder="..."> -minded</p>
+                    <p style="margin-top:8px;">2. <input type="text" class="short-input" data-ans="good" placeholder="..."> -natured</p>
+                    <p style="margin-top:8px;">3. <input type="text" class="short-input" data-ans="kind" placeholder="..."> -hearted</p>
+                    <p style="margin-top:8px;">4. <input type="text" class="short-input" data-ans="laid" placeholder="..."> -back</p>
+                    <p style="margin-top:8px;">5. <input type="text" class="short-input" data-ans="level" placeholder="..."> -headed</p>
+                </div>
+                <div class="rule-card">
+                    <p>6. <input type="text" class="short-input" data-ans="self" placeholder="..."> -centred</p>
+                    <p style="margin-top:8px;">7. <input type="text" class="short-input" data-ans="self" placeholder="..."> -conscious</p>
+                    <p style="margin-top:8px;">8. <input type="text" class="short-input" data-ans="self" placeholder="..."> -critical</p>
+                    <p style="margin-top:8px;">9. <input type="text" class="short-input" data-ans="short" placeholder="..."> -tempered</p>
+                    <p style="margin-top:8px;">10. <input type="text" class="short-input" data-ans="strong" placeholder="..."> -willed</p>
+                </div>
+            </div>
+            <h4 style="margin-bottom: 10px; color: var(--primary-purple);">Match each speaker with their compound adjective:</h4>
+            <ul class="question-list">
+                <li>1. "Everyone seems really stressed. I'm cool. No problem." →
+                    <select data-ans="laid-back">
+                        <option value="">-- choose --</option>
+                        <option value="laid-back">laid-back</option>
+                        <option value="short-tempered">short-tempered</option>
+                        <option value="self-conscious">self-conscious</option>
+                    </select>
+                </li>
+                <li>2. "I'm not going to change my mind, I'm determined." →
+                    <select data-ans="strong-willed">
+                        <option value="">-- choose --</option>
+                        <option value="fair-minded">fair-minded</option>
+                        <option value="strong-willed">strong-willed</option>
+                        <option value="self-centred">self-centred</option>
+                    </select>
+                </li>
+                <li>3. "I was hopeless: I should have done so much better." →
+                    <select data-ans="self-critical">
+                        <option value="">-- choose --</option>
+                        <option value="good-natured">good-natured</option>
+                        <option value="level-headed">level-headed</option>
+                        <option value="self-critical">self-critical</option>
+                    </select>
+                </li>
+                <li>4. "I can see both sides of the argument." →
+                    <select data-ans="fair-minded">
+                        <option value="">-- choose --</option>
+                        <option value="fair-minded">fair-minded</option>
+                        <option value="kind-hearted">kind-hearted</option>
+                        <option value="short-tempered">short-tempered</option>
+                    </select>
+                </li>
+                <li>5. "Why is everyone looking at me? My face is going red!" →
+                    <select data-ans="self-conscious">
+                        <option value="">-- choose --</option>
+                        <option value="level-headed">level-headed</option>
+                        <option value="self-conscious">self-conscious</option>
+                        <option value="good-natured">good-natured</option>
+                    </select>
+                </li>
+                <li>6. "Stop asking me questions! You're annoying me!" →
+                    <select data-ans="short-tempered">
+                        <option value="">-- choose --</option>
+                        <option value="kind-hearted">kind-hearted</option>
+                        <option value="laid-back">laid-back</option>
+                        <option value="short-tempered">short-tempered</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex4')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex4')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex4')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex4-feedback"></div>
+        </div>
+
+        <!-- Exercise 5: Personality Expressions -->
+        <div class="exercise-card" id="ex5">
+            <h3><span class="ex-badge">Exercise 5</span> Describing Personality Expressions</h3>
+            <p class="ex-instructions">Complete the expressions with the missing word, then match them with their definitions (Exercises 9 &amp; 10, page 25).</p>
+            <ul class="question-list">
+                <li>1. (be) <input type="text" class="short-input" data-ans="full" placeholder="..."> of oneself <em>(= have a really high opinion of yourself / arrogant)</em></li>
+                <li>2. (be) larger <input type="text" class="short-input" data-ans="than" placeholder="..."> life <em>(= very dramatic, exciting, and colourful)</em></li>
+                <li>3. (be) the life and soul <input type="text" class="short-input" data-ans="of" placeholder="..."> the party <em>(= entertaining and fun on social occasions)</em></li>
+                <li>4. (have) a love <input type="text" class="short-input" data-ans="of" placeholder="..."> learning <em>(= a strong desire for knowledge)</em></li>
+                <li>5. (make sb) feel <input type="text" class="short-input" data-ans="at" placeholder="..."> ease <em>(= help someone feel relaxed and comfortable)</em></li>
+                <li>6. think <input type="text" class="short-input" data-ans="outside" placeholder="..."> the box <em>(= view things creatively and find original solutions)</em></li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex5')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex5')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex5')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex5-feedback"></div>
+        </div>
+    </section>
+
+    <!-- ==================== PART 3: GRAMMAR - PAST PERFECT SIMPLE & CONTINUOUS ==================== -->
+    <section id="part3">
+        <div class="section-header">
+            <h2>3. Grammar: Past Perfect Simple &amp; Continuous</h2>
+        </div>
+
+        <div class="grammar-box">
+            <h3>⏰ Clear &amp; Simple Grammar Guide</h3>
+            <p>We use the <strong>Past Perfect</strong> ("the past before the past") to make it clear that an activity happened <strong>before</strong> the main events in a past story.</p>
+            
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <h4>1. Past Perfect Simple (had + past participle)</h4>
+                    <p>Use it for a <strong>completed action</strong> that happened before another past action, or to focus on <strong>how many times / how much</strong> was completed.</p>
+                    <span class="example-pill">He assumed she had got married.</span>
+                </div>
+                <div class="rule-card">
+                    <h4>2. Past Perfect Continuous (had + been + -ing)</h4>
+                    <p>Use it for an <strong>activity in progress</strong> before a past moment, or to emphasize <strong>duration</strong> (<em>for, since, all night</em>) or a visible past result.</p>
+                    <span class="example-pill">Steve had been working in a factory.</span>
+                </div>
+                <div class="rule-card">
+                    <h4>3. State Verbs = Simple ONLY!</h4>
+                    <p>Never use continuous forms with <strong>state verbs</strong> (<em>be, have, know, love, believe, understand, want</em>), even with <em>for</em> or <em>since</em>!</p>
+                    <span class="example-pill">It had been there for ten years.</span>
+                </div>
+                <div class="rule-card">
+                    <h4>4. Time Expressions (before / after)</h4>
+                    <p>You don't <em>have</em> to use the Past Perfect if <strong>before</strong> or <strong>after</strong> already makes the order of events 100% clear (both Past Simple and Past Perfect are fine).</p>
+                    <span class="example-pill">They got married after they (had) met.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Reading Reference -->
+        <div class="reading-box">
+            <h4>📖 Story Reference: "It was meant to be" (Page 26)</h4>
+            <p>Amelie was studying English in the UK when she met Steve. It was love at first sight and they spent a wonderful summer together. Amelie returned to France after her course finished. They tried to keep a long-distance relationship going, but they drifted apart.</p>
+            <p>A few years later, Steve wrote to Amelie but Amelie's mother put the letter on the mantelpiece, forgot to tell Amelie, and it slipped down the back of the fireplace. Many years later, a builder was removing the fireplace when he found the letter. <u>It had been there for ten years.</u></p>
+            <p>During that time, Amelie had remained single and had never forgotten the love of her life. Meanwhile, <u>Steve had been working in a factory</u> in his home town. He had been thinking about Amelie too, but he assumed <u>she had got married</u> to somebody else.</p>
+            <p>When she finally read the letter, Amelie was too nervous to call as so much time had passed. But she finally plucked up the courage and they arranged to meet. They got married seventeen years <u>after they had first met</u>.</p>
+        </div>
+
+        <!-- Exercise 6: Choose the most appropriate verb form -->
+        <div class="exercise-card" id="ex6">
+            <h3><span class="ex-badge">Exercise 6</span> Choose the Best Verb Form</h3>
+            <p class="ex-instructions">Choose the most appropriate verb form in each sentence (Exercise 4, page 26, plus extra exam-style items).</p>
+            <ul class="question-list">
+                <li>1. Amelie didn't know that Steve
+                    <select data-ans="had written">
+                        <option value="">-- choose --</option>
+                        <option value="wrote">wrote</option>
+                        <option value="had written">had written</option>
+                    </select> to her.
+                </li>
+                <li>2. Steve didn't know that Amelie
+                    <select data-ans="had never received">
+                        <option value="">-- choose --</option>
+                        <option value="had never received">had never received</option>
+                        <option value="had never been receiving">had never been receiving</option>
+                    </select> his letter.
+                </li>
+                <li>3. Steve thought Amelie
+                    <select data-ans="had got">
+                        <option value="">-- choose --</option>
+                        <option value="had got">had got</option>
+                        <option value="got">got</option>
+                    </select> married to somebody else.
+                </li>
+                <li>4. Amelie found the letter and realised it
+                    <select data-ans="had been lying">
+                        <option value="">-- choose --</option>
+                        <option value="was lying">was lying</option>
+                        <option value="had been lying">had been lying</option>
+                    </select> behind the fireplace for ten years.
+                </li>
+                <li>5. Amelie was nervous about calling Steve because they
+                    <select data-ans="hadn't seen">
+                        <option value="">-- choose --</option>
+                        <option value="hadn't seen">hadn't seen</option>
+                        <option value="didn't see">didn't see</option>
+                    </select> each other for a long time.
+                </li>
+                <li>6. Her eyes were red because she
+                    <select data-ans="had been crying">
+                        <option value="">-- choose --</option>
+                        <option value="had cried">had cried</option>
+                        <option value="had been crying">had been crying</option>
+                    </select> while reading his old letter.
+                </li>
+                <li>7. By the time they met in Paris, they
+                    <select data-ans="had known">
+                        <option value="">-- choose --</option>
+                        <option value="had known">had known</option>
+                        <option value="had been knowing">had been knowing</option>
+                    </select> each other for nearly two decades.
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex6')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex6')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex6')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex6-feedback"></div>
+        </div>
+
+        <!-- Exercise 7: Complete the sentences using prompts -->
+        <div class="exercise-card" id="ex7">
+            <h3><span class="ex-badge">Exercise 7</span> Complete with Past Perfect Simple or Continuous</h3>
+            <p class="ex-instructions">Complete the sentences using the prompts in brackets (Exercise 5, page 26, plus extra practice). Use full forms (e.g., <em>had not slept</em> or <em>hadn't slept</em>).</p>
+            <ul class="question-list">
+                <li>1. The roads were wet this morning. It <input type="text" class="med-input" data-ans="had been raining" value="had been raining" readonly> (it / rain) all night. <em>(Example)</em></li>
+                <li>2. Yesterday I was tired. I <input type="text" class="med-input" data-ans="hadn't slept|had not slept" placeholder="not / sleep"> (not / sleep) well the previous night.</li>
+                <li>3. I went to the doctor last week because I <input type="text" class="med-input" data-ans="hadn't been feeling|had not been feeling|hadn't felt|had not felt" placeholder="have / not / feel"> (have / not / feel) well.</li>
+                <li>4. I <input type="text" class="med-input" data-ans="had had" placeholder="have / same / phone"> the same phone (have / same / phone) for ages, so I got a new one last month.</li>
+                <li>5. By the time I arrived, the lesson <input type="text" class="med-input" data-ans="had already started" placeholder="already / start"> (already / start).</li>
+                <li>6. Marcus was out of breath when he got to school because he <input type="text" class="med-input" data-ans="had been running" placeholder="run"> (run) all the way.</li>
+                <li>7. She couldn't enter the flat because she <input type="text" class="med-input" data-ans="had left" placeholder="leave"> (leave) her keys at the office.</li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex7')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex7')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex7')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex7-feedback"></div>
+        </div>
+
+        <!-- Exercise 8: Story Gap-fill "Eric and Vilma: 40 Years On" -->
+        <div class="exercise-card" id="ex8">
+            <h3><span class="ex-badge">Exercise 8</span> Story Cloze: Eric and Vilma – 40 Years On</h3>
+            <p class="ex-instructions">Complete the story with the Past Perfect Simple or Continuous form of the verbs in the box (Exercise 7, page 26).</p>
+            <div class="word-bank">
+                <span>grow</span>
+                <span>hear</span>
+                <span>know (example)</span>
+                <span>live</span>
+                <span>make</span>
+                <span>meet</span>
+                <span>move</span>
+                <span>see</span>
+                <span>work</span>
+            </div>
+            <div class="story-passage">
+                <h4>Eric and Vilma: 40 Years On</h4>
+                Vilma was my wife's best friend. They <strong>1. had known</strong> each other since childhood. When Vilma moved away we lost touch, but she <strong>2.</strong> <input type="text" class="short-input" data-ans="had made" placeholder="(make)"> a big impression on me. So when my wife and I separated I decided to ask my friends if anyone <strong>3.</strong> <input type="text" class="short-input" data-ans="had heard" placeholder="(hear)"> from her, but no one had. Vilma was a very compassionate person so I imagined that she <strong>4.</strong> <input type="text" class="short-input" data-ans="had moved" placeholder="(move)"> to Tibet and <strong>5.</strong> <input type="text" class="med-input" data-ans="had been working|had worked" placeholder="(work)"> for a charity for a few years.<br>
+                Finally, my niece called to say she <strong>6.</strong> <input type="text" class="short-input" data-ans="had seen" placeholder="(see)"> Vilma's profile on Facebook. I rang her and found that she <strong>7.</strong> <input type="text" class="med-input" data-ans="had been living|had lived" placeholder="(live)"> in Paris. We met up and when we saw one another it was magical. We <strong>8.</strong> <input type="text" class="short-input" data-ans="had grown" placeholder="(grow)"> older, but that didn't matter. She was widowed and didn't have children. I proposed immediately. Forty years after we <strong>9.</strong> <input type="text" class="short-input" data-ans="had met" placeholder="(meet)"> for the first time, we got married.
+            </div>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex8')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex8')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex8')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex8-feedback"></div>
+        </div>
+
+        <!-- Exercise 9: Question Formation -->
+        <div class="exercise-card" id="ex9">
+            <h3><span class="ex-badge">Exercise 9</span> Question Formation (Past Perfect)</h3>
+            <p class="ex-instructions">Write Past Perfect questions about the story using the prompts (Exercise 8, page 26). Remember word order: <strong>(Wh-) + had + subject + past participle...?</strong></p>
+            <ul class="question-list">
+                <li>1. How long / Eric's ex-wife / know / Vilma?<br>
+                    <input type="text" class="long-input" data-ans="How long had Eric's ex-wife known Vilma?" value="How long had Eric's ex-wife known Vilma?" readonly> <em>(Example)</em>
+                </li>
+                <li>2. any of Eric's friends / hear / from Vilma / after she / move away?<br>
+                    <input type="text" class="long-input" data-ans="Had any of Eric's friends heard from Vilma after she moved away?|Had any of Eric's friends heard from Vilma after she had moved away?" placeholder="Had any of Eric's friends...">
+                </li>
+                <li>3. Why / Eric / think / Vilma / move / to Tibet?<br>
+                    <input type="text" class="long-input" data-ans="Why did Eric think Vilma had moved to Tibet?|Why had Eric thought Vilma had moved to Tibet?" placeholder="Why did Eric think...">
+                </li>
+                <li>4. Where / Vilma / live / since Eric / lose touch / with her?<br>
+                    <input type="text" class="long-input" data-ans="Where had Vilma been living since Eric lost touch with her?|Where had Vilma lived since Eric lost touch with her?" placeholder="Where had Vilma...">
+                </li>
+                <li>5. Vilma / have / any children / with her late husband?<br>
+                    <input type="text" class="long-input" data-ans="Had Vilma had any children with her late husband?" placeholder="Had Vilma...">
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex9')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex9')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex9')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex9-feedback"></div>
+        </div>
+    </section>
+
+    <!-- ==================== PART 4: LISTENING & RELATIONSHIP PHRASES ==================== -->
+    <section id="part4">
+        <div class="section-header">
+            <h2>4. What is Love? Relationship Phrases &amp; Exam Practice</h2>
+        </div>
+
+        <div class="grammar-box">
+            <h3>💕 Relationship Phrases &amp; Prepositions</h3>
+            <p>Pay close attention to the exact prepositions in these relationship expressions:</p>
+            <div class="rule-grid">
+                <div class="rule-card">
+                    <h4>1. be attracted <u>to</u> sb</h4>
+                    <p>= <strong>fancy sb</strong> (sentirsi attratti da qualcuno)</p>
+                </div>
+                <div class="rule-card">
+                    <h4>2. be madly <u>in</u> love with sb</h4>
+                    <p>= <strong>adore sb</strong> (essere follemente innamorati di qualcuno)</p>
+                </div>
+                <div class="rule-card">
+                    <h4>3. fall <u>for</u> sb</h4>
+                    <p>= <strong>fall in love with sb</strong> (innamorarsi di qualcuno)</p>
+                </div>
+                <div class="rule-card">
+                    <h4>4. go out <u>with</u> sb</h4>
+                    <p>= <strong>start seeing sb</strong> (uscire / frequentarsi con qualcuno)</p>
+                </div>
+                <div class="rule-card">
+                    <h4>5. split <u>up</u> with sb</h4>
+                    <p>= <strong>end a relationship</strong> (lasciarsi / rompere con qualcuno)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Exercise 10: Prepositions & Synonyms -->
+        <div class="exercise-card" id="ex10">
+            <h3><span class="ex-badge">Exercise 10</span> Relationship Prepositions &amp; Synonyms</h3>
+            <p class="ex-instructions">Fill in the missing preposition, then choose the matching synonym (Exercises 4 &amp; 5, page 27).</p>
+            <ul class="question-list">
+                <li>1. be attracted <input type="text" class="short-input" data-ans="to" value="to" readonly> sb =
+                    <select data-ans="fancy sb">
+                        <option value="">-- synonym --</option>
+                        <option value="fancy sb">fancy sb</option>
+                        <option value="adore sb">adore sb</option>
+                    </select>
+                </li>
+                <li>2. be madly <input type="text" class="short-input" data-ans="in" placeholder="..."> love with sb =
+                    <select data-ans="adore sb">
+                        <option value="">-- synonym --</option>
+                        <option value="adore sb">adore sb</option>
+                        <option value="start seeing sb">start seeing sb</option>
+                    </select>
+                </li>
+                <li>3. fall <input type="text" class="short-input" data-ans="for" placeholder="..."> sb =
+                    <select data-ans="fall in love with sb">
+                        <option value="">-- synonym --</option>
+                        <option value="end a relationship">end a relationship</option>
+                        <option value="fall in love with sb">fall in love with sb</option>
+                    </select>
+                </li>
+                <li>4. go out <input type="text" class="short-input" data-ans="with" placeholder="..."> sb =
+                    <select data-ans="start seeing sb">
+                        <option value="">-- synonym --</option>
+                        <option value="start seeing sb">start seeing sb</option>
+                        <option value="fancy sb">fancy sb</option>
+                    </select>
+                </li>
+                <li>5. split <input type="text" class="short-input" data-ans="up" placeholder="..."> with sb =
+                    <select data-ans="end a relationship">
+                        <option value="">-- synonym --</option>
+                        <option value="end a relationship">end a relationship</option>
+                        <option value="adore sb">adore sb</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkInputs('ex10')">Check Answers</button>
+                <button class="btn btn-show" onclick="showAnswers('ex10')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetExercise('ex10')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex10-feedback"></div>
+        </div>
+
+        <!-- Exercise 11: Exam Focus Reading/Listening Transcript Practice -->
+        <div class="exercise-card" id="ex11">
+            <h3><span class="ex-badge">Exercise 11</span> Exam Focus: The Neuroscience of Love</h3>
+            <p class="ex-instructions">Read the interview summary with neuroscientist Dr Ruby Niverton (based on Audio 1.23, page 27) and answer the 5 multiple-choice exam questions.</p>
+            
+            <div class="reading-box">
+                <h4>🎙️ Interview Transcript Summary: Dr Ruby Niverton</h4>
+                <p><strong>Interviewer:</strong> Today we're talking to neuroscientist Dr Ruby Niverton, who studies how chemical reactions in the brain affect our emotions and behaviour. Dr Niverton, from a scientific point of view, what is romantic love?</p>
+                <p><strong>Dr Niverton:</strong> Well, brain scans show that romantic love isn't just a gentle emotion—it actually behaves very much like an addiction! When someone falls madly in love, specific areas of the brain flood with dopamine and oxytocin, creating intense focus and craving.</p>
+                <p><strong>Interviewer:</strong> What did you see when you put people in love inside an MRI scanner?</p>
+                <p><strong>Dr Niverton:</strong> Interestingly, we saw that two distinct parts of the brain become highly activated at the same time—the reward centre and the area linked to motivation. Even more fascinating: when a person gets heartbroken and splits up with their partner, that love-related activity doesn't just switch off. In fact, experiments found it can actually increase at first, which explains why heartbreak feels so obsessive! Ultimately, our findings demonstrate that powerful human emotions aren't purely mysterious—they can be scientifically measured.</p>
+            </div>
+
+            <ul class="question-list" id="ex11-questions">
+                <li>
+                    <strong>1. Dr Ruby Niverton studies how</strong>
+                    <div class="mcq-options">
+                        <label><input type="radio" name="q1" value="A"> A. emotions influence the brain.</label>
+                        <label><input type="radio" name="q1" value="B" data-correct="true"> B. chemical reactions in the brain affect us.</label>
+                        <label><input type="radio" name="q1" value="C"> C. data about the brain can be collected.</label>
+                        <label><input type="radio" name="q1" value="D"> D. the brain is linked to the heart.</label>
+                    </div>
+                </li>
+                <li>
+                    <strong>2. According to Dr Niverton, romantic love</strong>
+                    <div class="mcq-options">
+                        <label><input type="radio" name="q2" value="A"> A. is linked to hunger and thirst.</label>
+                        <label><input type="radio" name="q2" value="B"> B. isn't very powerful.</label>
+                        <label><input type="radio" name="q2" value="C" data-correct="true"> C. is like an addiction.</label>
+                        <label><input type="radio" name="q2" value="D"> D. is a characteristic of all addicts.</label>
+                    </div>
+                </li>
+                <li>
+                    <strong>3. The scanner showed that when someone is in love</strong>
+                    <div class="mcq-options">
+                        <label><input type="radio" name="q3" value="A"> A. there is only activity in one area of the brain.</label>
+                        <label><input type="radio" name="q3" value="B"> B. the strength of their passion has no effect on brain activity.</label>
+                        <label><input type="radio" name="q3" value="C" data-correct="true"> C. two parts of the brain are activated.</label>
+                        <label><input type="radio" name="q3" value="D"> D. their brain activity is similar to when they think about chocolate.</label>
+                    </div>
+                </li>
+                <li>
+                    <strong>4. Experiments found that when a person is heartbroken, the love-related activity in their brain</strong>
+                    <div class="mcq-options">
+                        <label><input type="radio" name="q4" value="A"> A. stops completely.</label>
+                        <label><input type="radio" name="q4" value="B"> B. is significantly reduced.</label>
+                        <label><input type="radio" name="q4" value="C"> C. continues in a different part of the brain.</label>
+                        <label><input type="radio" name="q4" value="D" data-correct="true"> D. can be increased.</label>
+                    </div>
+                </li>
+                <li>
+                    <strong>5. Dr Niverton's findings demonstrate that strong emotions can</strong>
+                    <div class="mcq-options">
+                        <label><input type="radio" name="q5" value="A"> A. be controlled.</label>
+                        <label><input type="radio" name="q5" value="B"> B. cause brain damage.</label>
+                        <label><input type="radio" name="q5" value="C"> C. lead to obsession.</label>
+                        <label><input type="radio" name="q5" value="D" data-correct="true"> D. be scientifically measured.</label>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn-group">
+                <button class="btn btn-check" onclick="checkMCQ('ex11')">Check Answers</button>
+                <button class="btn btn-show" onclick="showMCQ('ex11')">Show Answers</button>
+                <button class="btn btn-reset" onclick="resetMCQ('ex11')">Reset</button>
+            </div>
+            <div class="feedback-banner" id="ex11-feedback"></div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 James Wynne</p>
+    <p style="margin-top: 4px;">
+        <a href="https://jwynne.wixsite.com/english" target="_blank">website</a> | 
+        <a href="mailto:james_wynne@hotmail.com">email</a> | 
+        <a href="https://wa.me/393515316973" target="_blank">whatsapp</a>
+    </p>
+</footer>
+
+<script>
+    function normalizeText(str) {
+        return str.trim().toLowerCase()
+            .replace(/[’']/g, "'")
+            .replace(/\s+/g, ' ')
+            .replace(/[?.!]+$/, '');
+    }
+
+    function checkInputs(sectionId) {
+        const container = document.getElementById(sectionId);
+        const fields = container.querySelectorAll('input[data-ans]:not([readonly]), select[data-ans]');
+        let correct = 0;
+        let total = fields.length;
+
+        fields.forEach(field => {
+            field.classList.remove('correct-field', 'wrong-field');
+            const userVal = normalizeText(field.value);
+            const validAnswers = field.getAttribute('data-ans').split('|').map(a => normalizeText(a));
+            if (userVal !== '' && validAnswers.includes(userVal)) {
+                field.classList.add('correct-field');
+                correct++;
+            } else {
+                field.classList.add('wrong-field');
+            }
+        });
+
+        const banner = document.getElementById(sectionId + '-feedback');
+        banner.style.display = 'block';
+        if (correct === total) {
+            banner.style.background = '#d1fae5';
+            banner.style.color = '#065f46';
+            banner.textContent = `🎉 Brilliant work, Giorgia! ${correct}/${total} correct!`;
+        } else {
+            banner.style.background = '#fef3c7';
+            banner.style.color = '#92400e';
+            banner.textContent = `You got ${correct} out of ${total} right. Check the red boxes and try again!`;
+        }
+    }
+
+    function showAnswers(sectionId) {
+        const container = document.getElementById(sectionId);
+        const fields = container.querySelectorAll('input[data-ans]:not([readonly]), select[data-ans]');
+        fields.forEach(field => {
+            const firstAns = field.getAttribute('data-ans').split('|')[0];
+            field.value = firstAns;
+            field.classList.remove('wrong-field');
+            field.classList.add('correct-field');
+        });
+        const banner = document.getElementById(sectionId + '-feedback');
+        banner.style.display = 'block';
+        banner.style.background = '#e0e7ff';
+        banner.style.color = '#3730a3';
+        banner.textContent = '✨ All model answers revealed!';
+    }
+
+    function resetExercise(sectionId) {
+        const container = document.getElementById(sectionId);
+        const fields = container.querySelectorAll('input[data-ans]:not([readonly]), select[data-ans]');
+        fields.forEach(field => {
+            field.value = '';
+            field.classList.remove('correct-field', 'wrong-field');
+        });
+        const banner = document.getElementById(sectionId + '-feedback');
+        banner.style.display = 'none';
+    }
+
+    function checkMCQ(sectionId) {
+        const container = document.getElementById(sectionId);
+        const items = container.querySelectorAll('li');
+        let correct = 0;
+        items.forEach(li => {
+            const labels = li.querySelectorAll('label');
+            labels.forEach(l => l.style.background = 'transparent');
+            const selected = li.querySelector('input[type="radio"]:checked');
+            if (selected) {
+                if (selected.hasAttribute('data-correct')) {
+                    selected.parentElement.style.background = '#d1fae5';
+                    correct++;
+                } else {
+                    selected.parentElement.style.background = '#fee2e2';
+                }
+            }
+        });
+        const banner = document.getElementById(sectionId + '-feedback');
+        banner.style.display = 'block';
+        if (correct === items.length) {
+            banner.style.background = '#d1fae5';
+            banner.style.color = '#065f46';
+            banner.textContent = `🎉 Spot on! ${correct}/${items.length} exam questions correct!`;
+        } else {
+            banner.style.background = '#fef3c7';
+            banner.style.color = '#92400e';
+            banner.textContent = `You scored ${correct}/${items.length}. Review the highlighted options!`;
+        }
+    }
+
+    function showMCQ(sectionId) {
+        const container = document.getElementById(sectionId);
+        const items = container.querySelectorAll('li');
+        items.forEach(li => {
+            li.querySelectorAll('label').forEach(l => l.style.background = 'transparent');
+            const correctRadio = li.querySelector('input[data-correct="true"]');
+            if (correctRadio) {
+                correctRadio.checked = true;
+                correctRadio.parentElement.style.background = '#d1fae5';
+            }
+        });
+        const banner = document.getElementById(sectionId + '-feedback');
+        banner.style.display = 'block';
+        banner.style.background = '#e0e7ff';
+        banner.style.color = '#3730a3';
+        banner.textContent = '✨ Correct exam answers highlighted!';
+    }
+
+    function resetMCQ(sectionId) {
+        const container = document.getElementById(sectionId);
+        container.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        container.querySelectorAll('label').forEach(l => l.style.background = 'transparent');
+        document.getElementById(sectionId + '-feedback').style.display = 'none';
+    }
+
+    function calculatePersonality() {
+        const counts = { agreeable: 0, imaginative: 0, organised: 0, deep: 0, sociable: 0 };
+        document.querySelectorAll('#ex2 input[type="checkbox"]:checked').forEach(cb => {
+            counts[cb.getAttribute('data-type')]++;
+        });
+        const banner = document.getElementById('personality-result');
+        banner.style.display = 'block';
+        banner.style.background = '#f3e8ff';
+        banner.style.color = '#5b21b6';
+        banner.innerHTML = `Your Symbol Tally: 💙 Agreeable: <strong>${counts.agreeable}/4</strong> | ⭐ Imaginative: <strong>${counts.imaginative}/4</strong> | 🟦 Organised: <strong>${counts.organised}/4</strong> | 🔺 Deep: <strong>${counts.deep}/4</strong> | ⚫ Sociable: <strong>${counts.sociable}/4</strong>. Read your highest-scoring profiles below!`;
+    }
+
+    function resetPersonality() {
+        document.querySelectorAll('#ex2 input[type="checkbox"]').forEach(cb => cb.checked = false);
+        document.getElementById('personality-result').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
